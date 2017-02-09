@@ -1,0 +1,12 @@
+# Globals
+globals:
+  version: 8.x-1.0
+  header: true
+  css:
+    component:
+      css/style.css: {}
+      https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css: { type: external }
+  js:
+    https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js: { type: external }
+    js/theme.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js: { type: external }

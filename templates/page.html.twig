@@ -1,0 +1,632 @@
+{#
+/**
+ * @file
+ * Bartik's theme implementation to display a single page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.html.twig template normally located in the
+ * core/modules/system directory.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.header: Items for the header region.
+ * - page.highlighted: Items for the highlighted region.
+ * - page.primary_menu: Items for the primary menu region.
+ * - page.secondary_menu: Items for the secondary menu region.
+ * - page.featured_top: Items for the featured top region.
+ * - page.content: The main content of the current page.
+ * - page.sidebar_first: Items for the first sidebar.
+ * - page.sidebar_second: Items for the second sidebar.
+ * - page.featured_bottom_first: Items for the first featured bottom region.
+ * - page.featured_bottom_second: Items for the second featured bottom region.
+ * - page.featured_bottom_third: Items for the third featured bottom region.
+ * - page.footer_first: Items for the first footer column.
+ * - page.footer_second: Items for the second footer column.
+ * - page.footer_third: Items for the third footer column.
+ * - page.footer_fourth: Items for the fourth footer column.
+ * - page.footer_fifth: Items for the fifth footer column.
+ * - page.breadcrumb: Items for the breadcrumb region.
+ *
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+<div id="page-wrapper">
+  <div id="page">
+
+  <div class="header">
+    <div class="logo-wrap">
+      <div class="container">
+        <div class="logo">
+          
+        </div>
+        <div class="left-top-header">
+          <ul>
+            <li><a href="#">9898989898</a></li>
+          </ul>
+        </div>
+        <div class="social-icon-wrap">
+          <div class="social-media">
+            <ul>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+              <li><a href="#"><i class="fa fa-skype"></i></a></li>
+              <li><a href="#"><i class="fa fa-stack-overflow"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% if page.navbar %}
+    <div class="navbar-wrap">
+      <div class="container">
+        <div class="menu">
+          {{ page.navbar }}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+    {% if page.highlighted %}
+      <div class="highlighted">
+        <aside class="layout-container section clearfix" role="complementary">
+          {{ page.highlighted }}
+        </aside>
+      </div>
+    {% endif %}
+    {% if page.featured_top %}
+      <div class="featured-top">
+        <aside class="featured-top__inner section layout-container clearfix" role="complementary">
+          {{ page.featured_top }}
+        </aside>
+      </div>
+    {% endif %}
+    <div id="main-wrapper" class="layout-main-wrapper layout-container clearfix">
+      <div id="main" class="layout-main clearfix">
+        {{ page.breadcrumb }}
+        <main id="content" class="column main-content" role="main">
+          <section class="section">
+            <a id="main-content" tabindex="-1"></a>
+            {{ page.content }}
+          </section>
+        </main>
+        {% if page.sidebar_first %}
+          <div id="sidebar-first" class="column sidebar">
+            <aside class="section" role="complementary">
+              {{ page.sidebar_first }}
+            </aside>
+          </div>
+        {% endif %}
+        {% if page.sidebar_second %}
+          <div id="sidebar-second" class="column sidebar">
+            <aside class="section" role="complementary">
+              {{ page.sidebar_second }}
+            </aside>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    {% if page.featured_bottom_first or page.featured_bottom_second or page.featured_bottom_third %}
+      <div class="featured-bottom">
+        <aside class="layout-container clearfix" role="complementary">
+          {{ page.featured_bottom_first }}
+          {{ page.featured_bottom_second }}
+          {{ page.featured_bottom_third }}
+        </aside>
+      </div>
+    {% endif %}
+
+    <div>HTML code --------------------------------</div>
+    
+    <div class="banner">
+
+      <div class="banner-slider">
+        <div class="item">
+          <img src="images/banner-image.jpg" height="600" width="200">
+          <div class="banner-details">
+            <h2>Discover all new! 1</h2>
+            <span>We have collected the most mordern web</span>
+            <span>technologies added a little bit of our love</span>
+            <span>painted with bright colors and created jets</span>
+            <a href="javascript:void(0);" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="item">
+          <img src="images/banner-image.jpg" height="600" width="200">
+          <div class="banner-details">
+            <h2>Discover all new! 2</h2>
+            <span>We have collected the most mordern web</span>
+            <span>technologies added a little bit of our love</span>
+            <span>painted with bright colors and created jets</span>
+            <a href="javascript:void(0);" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="item">
+          <img src="images/banner-image.jpg" height="600" width="200">
+          <div class="banner-details">
+            <h2>Discover all new! 3</h2>
+            <span>We have collected the most mordern web</span>
+            <span>technologies added a little bit of our love</span>
+            <span>painted with bright colors and created jets</span>
+            <a href="javascript:void(0);" class="read-more">Read More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    
+    <!-- Start features -->
+    <div class="features" id="features">
+      <div class="container">
+        <div class="features-details">
+          <h2>A lot of new features</h2>
+          <span>In facilisis eget nis nec consectetur. Maecenas laoreet tellus varius, alliquet justo non, intedur metus.</span>
+        </div>
+        <div class="tab">
+          <div class="feature-setting-tab tab-icon">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End features -->
+
+    <!-- Start about-grid -->
+    <div class="container">
+      <div class="about-grid-detail">
+        <div class="about-grid">
+          <div class="about-grid-image">
+            <div class="about-grid-icon">
+              <i class="fa fa-magic" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="about-grid-title">
+            <a href="javascript:void(0);">New Effects & Animation</a>
+          </div>
+          <div class="about-grid-desc">
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas, augue non facilisis congue, elit augue ullamcorper augue, vitae sollicitudin metus arcu vitae nisi. Morbi finibus libero dui, quis vestibulum risus tincidunt ac. Aenean luctus ligula mi, sit amet tristique ligula facilisis ut.</span>
+          </div>
+          <a href="javascript:void(0);" class="read-more">Read More</a>
+        </div>
+        <div class="about-grid">
+          <div class="about-grid-image">
+            <div class="about-grid-icon">
+              <i class="fa fa-mobile" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="about-grid-title">
+            <a href="javascript:void(0);">New Effects & Animation</a>
+          </div>
+          <div class="about-grid-desc">
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas, augue non facilisis congue, elit augue ullamcorper augue, vitae sollicitudin metus arcu vitae nisi. Morbi finibus libero dui, quis vestibulum risus tincidunt ac. Aenean luctus ligula mi, sit amet tristique ligula facilisis ut.</span>
+          </div>
+          <a href="javascript:void(0);" class="read-more">Read More</a>
+        </div>
+        <div class="about-grid">
+          <div class="about-grid-image">
+            <div class="about-grid-icon">
+              <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="about-grid-title">
+            <a href="javascript:void(0);">New Effects & Animation</a>
+          </div>
+          <div class="about-grid-desc">
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas, augue non facilisis congue, elit augue ullamcorper augue, vitae sollicitudin metus arcu vitae nisi. Morbi finibus libero dui, quis vestibulum risus tincidunt ac. Aenean luctus ligula mi, sit amet tristique ligula facilisis ut.</span>
+          </div>
+          <a href="javascript:void(0);" class="read-more">Read More</a>
+        </div>
+      </div>
+    </div>
+    <!-- End about-grid -->
+
+    <!-- Start Mobile image section -->
+    <div class="take-care-details" id="shortcode">
+      <div class="container">
+        <div class="take-care-grid">
+          <div class="take-care-headig">
+            <h2>We taking care of each detail</h2>
+            <span>Vestibulum ultricies lorem aliquam neque commodo.</span>
+          </div>
+          <div class="take-care-section">
+            <div class="take-care-icon">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </div>
+            <div class="take-care-detail">
+              <div class="take-care-title"><a href="javascript:void(0);">Clean Code</a></div>
+              <div class="take-care-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.</div>
+            </div>
+          </div>
+          <div class="take-care-section">
+            <div class="take-care-icon">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+            </div>
+            <div class="take-care-detail">
+              <div class="take-care-title"><a href="javascript:void(0);">Fast page Loading</a></div>
+              <div class="take-care-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.</div>
+            </div>
+          </div>
+          <div class="take-care-section">
+            <div class="take-care-icon">
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
+            </div>
+            <div class="take-care-detail">
+              <div class="take-care-title"><a href="javascript:void(0);">Created with love</a></div>
+              <div class="take-care-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.</div>
+            </div>
+          </div>
+        </div>
+        <div class="take-care-grid">
+          <img src="images/mobile-image.jpg" height='450' width='550' />
+        </div>
+      </div>
+    </div>
+    <!-- End Mobile image section -->
+
+    <!-- Start Project list -->
+    <div class="project-list" id="portfolio">
+      <div class="project-list-heading">
+        <div class="container">
+          <div class="project-list-section">
+            <div class="project-list-title">
+              <h2>Our beautiful projects</h2>
+              <span>Proin malesuada justo sed lobortis dapibus.</span>
+            </div>
+            <div class="tab">
+              <div class="project-list-tab tab-icon">
+                <i class="fa fa-leaf" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-list-grid">
+        <div class="item">
+          <img src="images/bg1.png" width="278" height="300">
+        </div>
+        <div class="item">
+          <img src="images/bg2.png" width="278" height="300">
+        </div>
+        <div class="item">
+          <img src="images/bg1.png" width="278" height="300">
+        </div>
+        <div class="item">
+          <img src="images/bg2.png" width="278" height="300">
+        </div>
+        <div class="item">
+          <img src="images/bg1.png" width="278" height="300">
+        </div>
+        <div class="item">
+          <img src="images/bg2.png" width="278" height="300">
+        </div>
+        <div class="item">
+          <img src="images/bg1.png" width="278" height="300">
+        </div>
+        <div class="item">
+          <img src="images/bg2.png" width="278" height="300">
+        </div>
+      </div>
+    </div>
+    <!-- End Project list -->
+
+    <!-- Start Blog -->
+    <div class="latest-blog" id="blog">
+      <div class="latest-blog-section">
+        <div class="container">
+          <div class="latest-blog-title">
+            <h2>Recent news from Blogs</h2>
+            <span>Proin malesuada justo sed lobortis dapibus.</span>
+          </div>
+          <div class="tab">
+            <div class="latest-blog-tab tab-icon">
+              <i class="fa fa-volume-off" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="latest-blog-slider">
+          <div class="blog-grid">
+            <div class="blog-image">
+              <img src="images/bg2.png" width="400" height="300">
+            </div>
+            <div class="blog-title">Volupte  velt</div>
+            <div class="blog-title-tage">
+              <a href="javascript:void(0);">SEO</a>
+              <a href="javascript:void(0);">DOM</a>
+              <a href="javascript:void(0);">YEL</a>
+            </div>
+            <div class="blog-title-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.<p><a href="javascript:void(0);">READ MORE</a></p></div>
+          </div>
+          <div class="blog-grid">
+            <div class="blog-image">
+              <img src="images/bg2.png" width="400" height="300">
+            </div>
+            <div class="blog-title">Volupte  velt</div>
+            <div class="blog-title-tage">
+              <a href="javascript:void(0);">SEO</a>
+              <a href="javascript:void(0);">DOM</a>
+            </div>
+            <div class="blog-title-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.<p><a href="javascript:void(0);">READ MORE</a></p></div>
+          </div>
+          <div class="blog-grid">
+            <div class="blog-image">
+              <img src="images/bg2.png" width="400" height="300">
+            </div>
+            <div class="blog-title">Volupte  velt</div>
+            <div class="blog-title-tage">
+              <a href="javascript:void(0);">SEO</a>
+              <a href="javascript:void(0);">DOM</a>
+              <a href="javascript:void(0);">YEL</a>
+            </div>
+            <div class="blog-title-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.<p><a href="javascript:void(0);">READ MORE</a></p></div>
+          </div>
+          <div class="blog-grid">
+            <div class="blog-image">
+              <img src="images/bg2.png" width="400" height="300">
+            </div>
+            <div class="blog-title">Volupte  velt</div>
+            <div class="blog-title-tage">
+              <a href="javascript:void(0);">SEO</a>
+              <a href="javascript:void(0);">DOM</a>
+              <a href="javascript:void(0);">YEL</a>
+            </div>
+            <div class="blog-title-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.<p><a href="javascript:void(0);">READ MORE</a></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Blog -->
+
+    <!-- Start Our Client -->
+    <div class="our-client">
+      <div class="our-client-section">
+        <div class="container">
+          <div class="our-client-title">
+            <h2>Get to know our Client</h2>
+            <span>Proin malesuada justo sed lobortis dapibus.</span>
+          </div>
+          <div class="tab">
+            <div class="our-client-tab tab-icon">
+              <i class="fa fa-globe" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="our-client-slider">
+          <div class="clients">
+            <img src="images/company-logo1" height='150' width='150' />
+          </div>
+          <div class="clients">
+            <img src="images/company-logo3" height='150' width='150' />
+          </div>
+          <div class="clients">
+            <img src="images/company-logo1" height='150' width='150' />
+          </div>
+          <div class="clients">
+            <img src="images/company-logo3" height='150' width='150' />
+          </div>
+          <div class="clients">
+            <img src="images/company-logo1" height='150' width='150' />
+          </div>
+          <div class="clients">
+            <img src="images/company-logo3" height='150' width='150' />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Our Client -->
+
+    <!-- Start About us -->
+    <div class="about-us" id="aboutus">
+      <div class="about-us-section">
+        <div class="about-us-title">
+          <h2>What people say about us</h2>
+          <span>Proin malesuada justo sed lobortis dapibus.</span>
+        </div>
+        <div class="tab">
+          <div class="about-us-tab tab-icon">
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+      <div class="about-us-testimonial">
+        <div class="container">
+          <div class="testimonial-slider">
+            <div class="testimonial">
+              <div class="testimonial-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas, augue non facilisis congue, elit augue ullamcorper augue, vitae sollicitudin metus arcu vitae nisi. Morbi finibus libero dui, quis vestibulum risus tincidunt ac.</div>
+              <div class="testimonial-author">Jeo Jourge</div>
+              <div class="testimonial-country">Ottawa</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas, augue non facilisis congue, elit augue ullamcorper augue, vitae sollicitudin metus arcu vitae nisi. Morbi finibus libero dui, quis vestibulum risus tincidunt ac.</div>
+              <div class="testimonial-author">Lee Menho</div>
+              <div class="testimonial-country">Chicago</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas, augue non facilisis congue, elit augue ullamcorper augue, vitae sollicitudin metus arcu vitae nisi. Morbi finibus libero dui, quis vestibulum risus tincidunt ac.</div>
+              <div class="testimonial-author">Jeo Jourge</div>
+              <div class="testimonial-country">Ottawa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End About us -->
+
+
+    <!-- Start Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="newsletter-section">
+          <div class="newsletter-deatils">
+            <div class="newsletter-title">Newsletter</div>
+            <div class="newsletter-desc">Nulla fermentum massa eu dui vehicula tempus. Aliquam ullamcorper placerat ipsum, eget mollis eros tempus sed. Mauris ut tristique tortor.</div>
+          </div>
+          <div class="newsletter-deatils">
+            <div class="newsletter-search">
+              <input type="text" name="usrname" Placeholder="e-mail">
+              <a href="javascript:void(0);"><i class="fa fa-credit-card" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-grid-section">
+          <div class="footer-grid">
+            <div class="footer-title">Footer</div>
+            <p>Ut metus libero, tincidunt vitae est eu, malesuada rutrum mauris. In euismod leo urna, et facilisis nibh congue in. Morbi erat velit, maximus vel mi vel, suscipit ultricies mauris.</p>
+            <p>Ut metus libero, tincidunt vitae est eu, malesuada rutrum mauris. In euismod leo urna, et facilisis nibh congue in. Morbi erat velit, maximus vel mi vel, suscipit ultricies mauris.</p>
+          </div>
+          <div class="footer-grid">
+            <div class="footer-title">Latest from blog</div>
+            <div class="footer-blog-img">
+              <img src="images/bg2.png" width="60" height="60" />
+              <a href="javascript:void(0);">Ut metus libero, tincidunt vitae est eu.</a>
+            </div>
+            <div class="footer-blog-img">
+              <img src="images/bg2.png" width="60" height="60" />
+              <a href="javascript:void(0);">Ut metus libero, tincidunt vitae est eu.</a>
+            </div>
+          </div>
+          <div class="footer-grid">
+            <div class="footer-title">Popular tags</div>
+            <div class="footer-tags">
+              <a href="javascript:void(0);">css</a>
+              <a href="javascript:void(0);">jquery</a>
+              <a href="javascript:void(0);">css3</a>
+              <a href="javascript:void(0);">html</a>
+              <a href="javascript:void(0);">bootstrap</a>
+              <a href="javascript:void(0);">html5</a>
+              <a href="javascript:void(0);">php</a>
+              <a href="javascript:void(0);">sql</a>
+              <a href="javascript:void(0);">laravel</a>
+              <a href="javascript:void(0);">design</a>
+            </div>
+          </div>
+          <div class="footer-grid">
+            <div class="footer-title">Photostream</div>
+            <div class="footer-photostream">
+              <a href="javascript:void(0);">
+                <img src="images/person.png" width="60" height="45" />
+              </a>
+              <a href="javascript:void(0);">
+                <img src="images/person.png" width="60" height="45" />
+              </a>
+              <a href="javascript:void(0);">
+                <img src="images/person.png" width="60" height="45" />
+              </a>
+              <a href="javascript:void(0);">
+                <img src="images/person.png" width="60" height="45" />
+              </a>
+              <a href="javascript:void(0);">
+                <img src="images/person.png" width="60" height="45" />
+              </a>
+              <a href="javascript:void(0);">
+                <img src="images/person.png" width="60" height="45" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-menu">
+          <ul class="footer-navigation">
+            <li><a href="javascript:void(0);">Home</a></li>
+            <li><a href="javascript:void(0);">Features</a></li>
+            <li><a href="javascript:void(0);">Sortcodes</a></li>
+            <li><a href="javascript:void(0);">Portfolio</a></li>
+            <li><a href="javascript:void(0);">Pages</a></li>
+            <li><a href="javascript:void(0);">Blog</a></li>
+            <li><a href="javascript:void(0);">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-bootom">
+          <div class="footer-contact">
+            <div class="contact-grid">
+              <div class="footer-contact-icon">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+              </div>
+              <div class="footer-contact-desc">
+                <p>402 semper urna,</p>
+                <p>vitae volutpat odiot</p>
+              </div>
+            </div>
+            <div class="contact-grid">
+              <div class="footer-contact-icon">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+              </div>
+              <div class="footer-contact-desc">
+                <p><a href="javascript:void(0);">1900 1800 1200</a></p>
+                <p><a href="javascript:void(0);">1900 1800 1200</a></p>
+              </div>
+            </div>
+            <div class="contact-grid">
+              <div class="footer-contact-icon">
+                <!-- <i class="fa fa-envelope-o" aria-hidden="true"></i> -->
+                <button type="button" class="tcon tcon-mail--envelope" role="button" aria-label="open mailbox">
+                  <span class="tcon-mail--envelope__flap" aria-hidden="true"></span><!-- 
+                  <span class="tcon-visuallyhidden">open mailbox</span> -->
+                </button>
+              </div>
+              <div class="footer-contact-desc">
+                <p><a href="javascript:void(0);">abc@gmail.com</a></p>
+                <p><a href="javascript:void(0);">abc@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-social">
+            <a href="javascript:void(0);"><i class="fa fa-2x fa-rss" aria-hidden="true"></i></a>
+            <a href="javascript:void(0);"><i class="fa fa-2x fa-google-plus" aria-hidden="true"></i></a>
+            <a href="javascript:void(0);"><i class="fa fa-2x fa-youtube-play" aria-hidden="true"></i></a>
+            <a href="javascript:void(0);"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></a>
+            <a href="javascript:void(0);"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Footer -->
+
+    <footer class="site-footer">
+      <div class="layout-container">
+        {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
+          <div class="site-footer__top clearfix">
+            {{ page.footer_first }}
+            {{ page.footer_second }}
+            {{ page.footer_third }}
+            {{ page.footer_fourth }}
+          </div>
+        {% endif %}
+        {% if page.footer_fifth %}
+          <div class="site-footer__bottom">
+            {{ page.footer_fifth }}
+          </div>
+        {% endif %}
+      </div>
+    </footer>
+  </div>
+</div>

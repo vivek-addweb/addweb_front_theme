@@ -1,0 +1,55 @@
+/**
+ * @file
+ * SCSS file to generate CSS.
+ *
+ * Base css of site
+ */
+
+* {
+  line-height: normal;
+  vertical-align: top;
+}
+
+body {
+  margin: 0;
+  font-family: $opensans-extrabold;
+}
+
+a {
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+video {
+  height: auto;
+  width: 100%;
+}
+
+p {
+  font-size: 16px;
+  font-family: $opensans-regular;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $black;
+  font-family: $opensans-semibold;
+}
+h1 { font-size: 36px; }
+h2 { font-size: 30px; }
+h3 { font-size: 24px; }
+h4 { font-size: 18px; }
+h5 { font-size: 14px; }
+h6 { font-size: 12px; }

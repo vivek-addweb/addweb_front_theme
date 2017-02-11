@@ -1,0 +1,6 @@
+# Ignore configuration files that may contain sensitive information.
+node_modules/
+src/images/
+src/fonts/
+src.zip
+gulp.zip

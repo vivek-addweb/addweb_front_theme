@@ -89,6 +89,43 @@
     {% endif %}
   </div>
 
+    {# Include a slider. #}
+    {% if is_front %}
+      <div class="aws-slider">
+        <div class="aws-controls">
+          <a class="aws-prev-link hide-arrow" href="javascript:void();">
+            <img src="">
+          </a>
+          <a class="aws-next-link" href="javascript:void();">
+            <img src="">
+          </a>
+        </div>
+        <div class="aws-grid">
+          {% for slide in slider %}
+          <div class="aws-row aws-row-1 aaaaaaaaaaa">
+            <div class="aws-col aws-col-1">
+              <div class="aws-content">
+                <div class="aws-title">{{ slide.title_left }}</div>
+                <div class="aws-body">
+                  <a href="{{ slide.url_left }}"><img src="{{ slide.src_left }}"></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="aws-col aws-col-2">
+              <div class="aws-content">
+                <div class="aws-title">{{ slide.title_right }}</div>
+                <div class="aws-body">
+                  <a href="{{ slide.url_right }}"><img src="{{ slide.src_right }}"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
     {% if page.highlighted %}
       <div class="highlighted">
         <aside class="layout-container section clearfix" role="complementary">
@@ -137,108 +174,6 @@
         </aside>
       </div>
     {% endif %}
-
-<br>
-<br>
-<br>
-<div>#####################################################################</div>
-<div>CONTENT SLIDE ------</div>
-  {# Include a slider. #}
-  {% if is_front %}
-    <div class="aws-slider">
-      <div class="aws-controls">
-        <a class="aws-prev-link hide-arrow" href="javascript:void();">
-          <img src="">
-        </a>
-        <a class="aws-next-link" href="javascript:void();">
-          <img src="">
-        </a>
-      </div>
-      <div class="aws-grid">
-        {% for slide in slider %}
-        <div class="aws-row aws-row-1 aaaaaaaaaaa">
-          <div class="aws-col aws-col-1">
-            <div class="aws-content">
-              <div class="aws-title">{{ slide.title_left }}</div>
-              <div class="aws-body">
-                <a href="{{ slide.url_left }}"><img src="{{ slide.src_left }}"></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="aws-col aws-col-2">
-            <div class="aws-content">
-              <div class="aws-title">{{ slide.title_right }}</div>
-              <div class="aws-body">
-                <a href="{{ slide.url_right }}"><img src="{{ slide.src_right }}"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  {% endif %}
-<div>#####################################################################</div>
-<br>
-<br>
-<br>
-
-
-    <div class="aws-slider">
-      <div class="aws-controls">
-        <a class="aws-prev-link hide-arrow" href="javascript:void();">
-          <img src="">
-        </a>
-        <a class="aws-next-link" href="javascript:void();">
-          <img src="">
-        </a>
-      </div>
-      <div class="aws-grid">
-        <div class="aws-row aws-row-1">
-          <div class="aws-col aws-col-1">
-            <div class="aws-content">
-              <div class="aws-title">Slide 1</div>
-              <div class="aws-body">Absolutely first class company. Cannot recommend highly enough. I have given them some more work with pleasure and confidence</div>
-            </div>
-          </div>
-          <div class="aws-col aws-col-2">
-            <div class="aws-content">
-              <div class="aws-title">Slide 2</div>
-              <div class="aws-body">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',</div>
-            </div>
-          </div>
-        </div>
-        <div class="aws-row aws-row-2">
-          <div class="aws-col aws-col-1">
-            <div class="aws-content">
-              <div class="aws-title">Slide 3</div>
-              <div class="aws-body">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</div>
-            </div>
-          </div>
-          <div class="aws-col aws-col-2">
-            <div class="aws-content">
-              <div class="aws-title">Slide 4</div>
-              <div class="aws-body">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </div>
-            </div>
-          </div>
-        </div>
-        <div class="aws-row aws-row-3">
-          <div class="aws-col aws-col-1">
-            <div class="aws-content">
-              <div class="aws-title">Slide 5 </div>
-              <div class="aws-body">The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</div>
-            </div>
-          </div>
-          <div class="aws-col aws-col-2">
-            <div class="aws-content">
-              <div class="aws-title">Slide 6 </div>
-              <div class="aws-body">It is a long established fact that</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
 

@@ -6,9 +6,11 @@
  */
 
 /* Logo */
-.logo {
-  svg {
-    width:150px
+.site-logo {
+  svg,
+  img {
+    height: 50px;
+    width: auto;
   }
 }
 

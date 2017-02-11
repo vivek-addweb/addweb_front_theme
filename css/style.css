@@ -833,8 +833,10 @@ textarea {
  * Header SCSS.
  */
 /* Logo */
-.logo svg {
-  width: 150px; }
+.site-logo svg,
+.site-logo img {
+  height: 50px;
+  width: auto; }
 
 /* Header */
 .header {

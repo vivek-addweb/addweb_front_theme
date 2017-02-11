@@ -5,12 +5,25 @@
  */
 // Change the value to increase the slideshow.
 define('SLIDESHOW_COUNT', 3);
+define('SOCIAL_COUNT', 5);
 
 
 /**
  * Override or insert variables into the page template.
  */
 function addweb_d8_preprocess_page(&$vars) {
+
+  /**
+   * Social media
+   */
+  for ($i = 1; $i <= SOCIAL_COUNT; $i++) {
+    $vars['social_url'][] = theme_get_setting("social_li_{$i}", "addweb_d8");
+  }
+  /* End */
+
+  /**
+   * Home page slider
+   */
   $show_slideshow = theme_get_setting('slider_display', 'addweb_d8');
   if ($vars['is_front'] && $show_slideshow) {
     // Slider
@@ -45,6 +58,7 @@ function addweb_d8_preprocess_page(&$vars) {
       );
     }
   }
+  /* End */
 }
 
 
@@ -58,6 +72,40 @@ function addweb_d8_preprocess_page(&$vars) {
  */
 function addweb_d8_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
+  /**
+   * Social media
+   */
+  $form['social_header'] = array(
+    '#type' => 'details',
+    '#title' => t('Social Media in Header'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+  $form['social_header']['social_display'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show slideshow'),
+    '#default_value' => theme_get_setting('slider_display', 'addweb_d8'),
+    '#description'   => t("Check this option to show Slideshow in front page. Uncheck to hide."),
+  );
+  $social_name = array('Facebook', 'Twitter', 'Google Plus', 'LinkedIn', 'Youtube');
+  for ($i = 1; $i <= SOCIAL_COUNT; $i++) {
+    $form['social_header']['social_li_' . $i] = array(
+      '#type' => 'textfield',
+      '#title' => t($social_name[$i - 1] . ' URL'),
+      '#default_value' => theme_get_setting("social_li_{$i}", "addweb_d8"),
+    );
+    /*$form['social_header']['social_class_' . $i] = array(
+      '#type' => 'textfield',
+      '#title' => t('CSS class'),
+      '#default_value' => theme_get_setting("social_class_{$i}", "addweb_d8"),
+    );*/
+  }
+  /* End */
+
+
+  /**
+   * Home page slider
+   */
   $form['home_slider'] = array(
     '#type' => 'details',
     '#title' => t('Home Page Slider'),
@@ -130,6 +178,7 @@ function addweb_d8_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
       '#default_value' => theme_get_setting("slide_right_url_{$i}", "addweb_d8"),
     );
   }
+  /* End */
 
   $filename = drupal_get_path('theme', 'addweb_d8') . '/addweb_d8.theme';
   $form_state->addBuildInfo('files', array($filename));

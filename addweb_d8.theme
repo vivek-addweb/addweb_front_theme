@@ -1,1 +1,181 @@
+<?php
+/**
+ * @file
+ * Functions to support theming in the addweb_d8 theme.
+ */
+// Change the value to increase the slideshow.
+define('SLIDESHOW_COUNT', 3);
 
+
+/**
+ * Override or insert variables into the page template.
+ */
+function addweb_d8_preprocess_page(&$vars) {
+  $show_slideshow = theme_get_setting('slideshow_display', 'addweb_d8');
+  if ($vars['is_front'] && $show_slideshow) {
+    // Parent div
+    // $vars['parent_div_start'] = array();
+    // for ($i = 1; $i <= SLIDESHOW_COUNT; $i++) {
+    //   $vars['parent_div_start'][] = $i;
+    // }
+    // $vars['parent_div_close'] = array();
+    // for ($i = 1; $i <= SLIDESHOW_COUNT; $i++) {
+
+    // }
+    // Slide Left
+    $vars['slider_left'] = array();
+    for ($i = 1; $i <= SLIDESHOW_COUNT; $i++) {
+      $fid = theme_get_setting("slide_left_image_{$i}", "addweb_d8");
+      $file = \Drupal\file\Entity\File::load($fid[0]);
+      if (!empty($file)) {
+        $uri = $file->getFileUri();
+        $image_path = file_create_url($uri);
+      }
+      else {
+        $image_path = THEME_PATH . "/images/slide-{$i}.jpg";
+      }
+      $vars['slider_left'][] = array(
+        'url' => theme_get_setting("slide_left_url_{$i}", "addweb_d8"),
+        'src' => $image_path,
+        'title' => theme_get_setting("slide_left_title_{$i}", "addweb_d8"),
+
+        'url' => theme_get_setting("slide_right_url_{$i}", "addweb_d8"),
+        'src' => $image_path,
+        'title' => theme_get_setting("slide_right_title_{$i}", "addweb_d8"),
+      );
+    }
+    // Slide Right
+    $vars['slider_right'] = array();
+    // for ($i = 1; $i <= SLIDESHOW_COUNT; $i++) {
+    //   $fid = theme_get_setting("slide_right_image_{$i}", "addweb_d8");
+    //   $file = \Drupal\file\Entity\File::load($fid[0]);
+    //   if (!empty($file)) {
+    //     $uri = $file->getFileUri();
+    //     $image_path = file_create_url($uri);
+    //   }
+    //   else {
+    //     $image_path = THEME_PATH . "/images/slide-{$i}.jpg";
+    //   }
+    //   $vars['slider_right'][] = array(
+    //     'url' => theme_get_setting("slide_right_url_{$i}", "addweb_d8"),
+    //     'src' => $image_path,
+    //     'title' => theme_get_setting("slide_right_title_{$i}", "addweb_d8"),
+    //   );
+    // }
+  }
+}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @param $form
+ *   The form.
+ * @param $form_state
+ *   The form state.
+ */
+function addweb_d8_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $form['busi_settings']['slideshow'] = array(
+    '#type' => 'details',
+    '#title' => t('Front Page Slideshow'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+  $form['busi_settings']['slideshow']['slideshow_display'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show slideshow'),
+    '#default_value' => theme_get_setting('slideshow_display', 'addweb_d8'),
+    '#description'   => t("Check this option to show Slideshow in front page. Uncheck to hide."),
+  );
+  $form['busi_settings']['slideshow']['slide'] = array(
+    '#markup' => t('You can change the title, url and image of each slide in the following Slide Setting fieldsets.'),
+  );
+
+  for ($i = 1; $i <= SLIDESHOW_COUNT; $i++) {
+    // Slide left
+    $form['busi_settings']['slideshow']['slide_left' . $i] = array(
+      '#type' => 'details',
+      '#title' => t('Slide Left'.$i),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+    $form['busi_settings']['slideshow']['slide_left' . $i]['slide_left_title_' . $i] = array(
+      '#type' => 'textfield',
+      '#title' => t('Slide Left'.$i.' Title'),
+      '#default_value' => theme_get_setting("slide_left_title_{$i}", "addweb_d8"),
+    );
+    $form['busi_settings']['slideshow']['slide_left' . $i]['slide_left_image_' . $i] = array(
+      '#type' => 'managed_file',
+      '#title' => t('Slide Left'.$i.' Image'),
+      '#description' => t('Use same size for all the slideshow images(Recommented size : 930 x 320).'),
+      '#default_value' => theme_get_setting("slide_left_image_{$i}", "addweb_d8"),
+      '#upload_location' => 'public://',
+    );
+    $form['busi_settings']['slideshow']['slide_left' . $i]['slide_left_url_' . $i] = array(
+      '#type' => 'textfield',
+      '#title' => t('Slide Left'.$i.' URL'),
+      '#default_value' => theme_get_setting("slide_left_url_{$i}", "addweb_d8"),
+    );
+    // Slide right
+    $form['busi_settings']['slideshow']['slide_right' . $i] = array(
+      '#type' => 'details',
+      '#title' => t('Slide Right'.$i),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+    $form['busi_settings']['slideshow']['slide_right' . $i]['slide_right_title_' . $i] = array(
+      '#type' => 'textfield',
+      '#title' => t('Slide Right'.$i.' Title'),
+      '#default_value' => theme_get_setting("slide_right_title_{$i}", "addweb_d8"),
+    );
+    $form['busi_settings']['slideshow']['slide_right' . $i]['slide_right_image_' . $i] = array(
+      '#type' => 'managed_file',
+      '#title' => t('Slide Right'.$i.' Image'),
+      '#description' => t('Use same size for all the slideshow images(Recommented size : 930 x 320).'),
+      '#default_value' => theme_get_setting("slide_right_image_{$i}", "addweb_d8"),
+      '#upload_location' => 'public://',
+    );
+    $form['busi_settings']['slideshow']['slide_right' . $i]['slide_right_url_' . $i] = array(
+      '#type' => 'textfield',
+      '#title' => t('Slide Right'.$i.' URL'),
+      '#default_value' => theme_get_setting("slide_right_url_{$i}", "addweb_d8"),
+    );
+  }
+
+  $filename = drupal_get_path('theme', 'addweb_d8') . '/addweb_d8.theme';
+  $form_state->addBuildInfo('files', array($filename));
+  // Custom submit to save the file permenant.
+  $form['#submit'][] = 'addweb_d8_settings_form_submit';
+}
+
+
+/**
+ * Custom submit handler for integrity settings form.
+ */
+function addweb_d8_settings_form_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $account = \Drupal::currentUser();
+  $values = $form_state->getValues();
+  for ($i = 0; $i <= SLIDESHOW_COUNT; $i++) {
+    if (isset($values["slide_left_image_{$i}"]) && !empty($values["slide_left_image_{$i}"])) {
+      // Load the file via file.fid.
+      if ($file = \Drupal\file\Entity\File::load($values["slide_image_{$i}"][0])) {
+        // Change status to permanent.
+        $file->setPermanent();
+        $file->save();
+        $file_usage = \Drupal::service('file.usage');
+        $file_usage->add($file, 'user', 'user', $account->id());
+      }
+    }
+    if (isset($values["slide_right_image_{$i}"]) && !empty($values["slide_right_image_{$i}"])) {
+      // Load the file via file.fid.
+      if ($file = \Drupal\file\Entity\File::load($values["slide_image_{$i}"][0])) {
+        // Change status to permanent.
+        $file->setPermanent();
+        $file->save();
+        $file_usage = \Drupal::service('file.usage');
+        $file_usage->add($file, 'user', 'user', $account->id());
+      }
+    }
+  }
+}

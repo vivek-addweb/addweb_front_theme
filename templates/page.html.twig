@@ -89,10 +89,6 @@
     {% endif %}
   </div>
 
-  <br>
-  <br>
-  <br>
-
     {% if page.highlighted %}
       <div class="highlighted">
         <aside class="layout-container section clearfix" role="complementary">
@@ -142,345 +138,111 @@
       </div>
     {% endif %}
 
-    <div>HTML code --------------------------------</div>
-    
-    <div class="banner">
-
-      <div class="banner-slider">
-        <div class="item">
-          <img src="images/banner-image.jpg" height="600" width="200">
-          <div class="banner-details">
-            <h2>Discover all new! 1</h2>
-            <span>We have collected the most mordern web</span>
-            <span>technologies added a little bit of our love</span>
-            <span>painted with bright colors and created jets</span>
-            <a href="javascript:void(0);" class="read-more">Read More</a>
-          </div>
-        </div>
-        <div class="item">
-          <img src="images/banner-image.jpg" height="600" width="200">
-          <div class="banner-details">
-            <h2>Discover all new! 2</h2>
-            <span>We have collected the most mordern web</span>
-            <span>technologies added a little bit of our love</span>
-            <span>painted with bright colors and created jets</span>
-            <a href="javascript:void(0);" class="read-more">Read More</a>
-          </div>
-        </div>
-        <div class="item">
-          <img src="images/banner-image.jpg" height="600" width="200">
-          <div class="banner-details">
-            <h2>Discover all new! 3</h2>
-            <span>We have collected the most mordern web</span>
-            <span>technologies added a little bit of our love</span>
-            <span>painted with bright colors and created jets</span>
-            <a href="javascript:void(0);" class="read-more">Read More</a>
-          </div>
-        </div>
+<br>
+<br>
+<br>
+<div>#####################################################################</div>
+<div>CONTENT SLIDE ------</div>
+  {# Include a slider. #}
+  {% if is_front %}
+    <div class="aws-slider">
+      <div class="aws-controls">
+        <a class="aws-prev-link hide-arrow" href="javascript:void();">
+          <img src="">
+        </a>
+        <a class="aws-next-link" href="javascript:void();">
+          <img src="">
+        </a>
       </div>
+      <div class="aws-grid">
+        {% for slide in slider_left %}
+        <div class="aws-row aws-row-1 aaaaaaaaaaa">
+          <div class="aws-col aws-col-1">
+            <div class="aws-content">
+              <div class="aws-title">{{ slide.title }}</div>
+              <div class="aws-body">
+                <a href="{{ slide.url }}"><img src="{{ slide.src }}"></a>
+              </div>
+            </div>
+          </div>
 
-    </div>
-    
-    
-    <!-- Start features -->
-    <div class="features" id="features">
-      <div class="container">
-        <div class="features-details">
-          <h2>A lot of new features</h2>
-          <span>In facilisis eget nis nec consectetur. Maecenas laoreet tellus varius, alliquet justo non, intedur metus.</span>
-        </div>
-        <div class="tab">
-          <div class="feature-setting-tab tab-icon">
-            <i class="fa fa-cog" aria-hidden="true"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End features -->
-
-    <!-- Start about-grid -->
-    <div class="container">
-      <div class="about-grid-detail">
-        <div class="about-grid">
-          <div class="about-grid-image">
-            <div class="about-grid-icon">
-              <i class="fa fa-magic" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="about-grid-title">
-            <a href="javascript:void(0);">New Effects & Animation</a>
-          </div>
-          <div class="about-grid-desc">
-            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas, augue non facilisis congue, elit augue ullamcorper augue, vitae sollicitudin metus arcu vitae nisi. Morbi finibus libero dui, quis vestibulum risus tincidunt ac. Aenean luctus ligula mi, sit amet tristique ligula facilisis ut.</span>
-          </div>
-          <a href="javascript:void(0);" class="read-more">Read More</a>
-        </div>
-        <div class="about-grid">
-          <div class="about-grid-image">
-            <div class="about-grid-icon">
-              <i class="fa fa-mobile" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="about-grid-title">
-            <a href="javascript:void(0);">New Effects & Animation</a>
-          </div>
-          <div class="about-grid-desc">
-            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas, augue non facilisis congue, elit augue ullamcorper augue, vitae sollicitudin metus arcu vitae nisi. Morbi finibus libero dui, quis vestibulum risus tincidunt ac. Aenean luctus ligula mi, sit amet tristique ligula facilisis ut.</span>
-          </div>
-          <a href="javascript:void(0);" class="read-more">Read More</a>
-        </div>
-        <div class="about-grid">
-          <div class="about-grid-image">
-            <div class="about-grid-icon">
-              <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="about-grid-title">
-            <a href="javascript:void(0);">New Effects & Animation</a>
-          </div>
-          <div class="about-grid-desc">
-            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas, augue non facilisis congue, elit augue ullamcorper augue, vitae sollicitudin metus arcu vitae nisi. Morbi finibus libero dui, quis vestibulum risus tincidunt ac. Aenean luctus ligula mi, sit amet tristique ligula facilisis ut.</span>
-          </div>
-          <a href="javascript:void(0);" class="read-more">Read More</a>
-        </div>
-      </div>
-    </div>
-    <!-- End about-grid -->
-
-    <!-- Start Mobile image section -->
-    <div class="take-care-details" id="shortcode">
-      <div class="container">
-        <div class="take-care-grid">
-          <div class="take-care-headig">
-            <h2>We taking care of each detail</h2>
-            <span>Vestibulum ultricies lorem aliquam neque commodo.</span>
-          </div>
-          <div class="take-care-section">
-            <div class="take-care-icon">
-              <i class="fa fa-check" aria-hidden="true"></i>
-            </div>
-            <div class="take-care-detail">
-              <div class="take-care-title"><a href="javascript:void(0);">Clean Code</a></div>
-              <div class="take-care-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.</div>
-            </div>
-          </div>
-          <div class="take-care-section">
-            <div class="take-care-icon">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-            </div>
-            <div class="take-care-detail">
-              <div class="take-care-title"><a href="javascript:void(0);">Fast page Loading</a></div>
-              <div class="take-care-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.</div>
-            </div>
-          </div>
-          <div class="take-care-section">
-            <div class="take-care-icon">
-              <i class="fa fa-heart-o" aria-hidden="true"></i>
-            </div>
-            <div class="take-care-detail">
-              <div class="take-care-title"><a href="javascript:void(0);">Created with love</a></div>
-              <div class="take-care-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.</div>
-            </div>
-          </div>
-        </div>
-        <div class="take-care-grid">
-          <img src="images/mobile-image.jpg" height='450' width='550' />
-        </div>
-      </div>
-    </div>
-    <!-- End Mobile image section -->
-
-    <!-- Start Project list -->
-    <div class="project-list" id="portfolio">
-      <div class="project-list-heading">
-        <div class="container">
-          <div class="project-list-section">
-            <div class="project-list-title">
-              <h2>Our beautiful projects</h2>
-              <span>Proin malesuada justo sed lobortis dapibus.</span>
-            </div>
-            <div class="tab">
-              <div class="project-list-tab tab-icon">
-                <i class="fa fa-leaf" aria-hidden="true"></i>
+          <div class="aws-col aws-col-2">
+            <div class="aws-content">
+              <div class="aws-title">{{ slide.title }}</div>
+              <div class="aws-body">
+                <a href="{{ slide.url }}"><img src="{{ slide.src }}"></a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="project-list-grid">
-        <div class="item">
-          <img src="images/bg1.png" width="278" height="300">
-        </div>
-        <div class="item">
-          <img src="images/bg2.png" width="278" height="300">
-        </div>
-        <div class="item">
-          <img src="images/bg1.png" width="278" height="300">
-        </div>
-        <div class="item">
-          <img src="images/bg2.png" width="278" height="300">
-        </div>
-        <div class="item">
-          <img src="images/bg1.png" width="278" height="300">
-        </div>
-        <div class="item">
-          <img src="images/bg2.png" width="278" height="300">
-        </div>
-        <div class="item">
-          <img src="images/bg1.png" width="278" height="300">
-        </div>
-        <div class="item">
-          <img src="images/bg2.png" width="278" height="300">
-        </div>
+        {% endfor %}
       </div>
     </div>
-    <!-- End Project list -->
+  {% endif %}
+<div>#####################################################################</div>
+<br>
+<br>
+<br>
 
-    <!-- Start Blog -->
-    <div class="latest-blog" id="blog">
-      <div class="latest-blog-section">
-        <div class="container">
-          <div class="latest-blog-title">
-            <h2>Recent news from Blogs</h2>
-            <span>Proin malesuada justo sed lobortis dapibus.</span>
-          </div>
-          <div class="tab">
-            <div class="latest-blog-tab tab-icon">
-              <i class="fa fa-volume-off" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="latest-blog-slider">
-          <div class="blog-grid">
-            <div class="blog-image">
-              <img src="images/bg2.png" width="400" height="300">
-            </div>
-            <div class="blog-title">Volupte  velt</div>
-            <div class="blog-title-tage">
-              <a href="javascript:void(0);">SEO</a>
-              <a href="javascript:void(0);">DOM</a>
-              <a href="javascript:void(0);">YEL</a>
-            </div>
-            <div class="blog-title-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.<p><a href="javascript:void(0);">READ MORE</a></p></div>
-          </div>
-          <div class="blog-grid">
-            <div class="blog-image">
-              <img src="images/bg2.png" width="400" height="300">
-            </div>
-            <div class="blog-title">Volupte  velt</div>
-            <div class="blog-title-tage">
-              <a href="javascript:void(0);">SEO</a>
-              <a href="javascript:void(0);">DOM</a>
-            </div>
-            <div class="blog-title-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.<p><a href="javascript:void(0);">READ MORE</a></p></div>
-          </div>
-          <div class="blog-grid">
-            <div class="blog-image">
-              <img src="images/bg2.png" width="400" height="300">
-            </div>
-            <div class="blog-title">Volupte  velt</div>
-            <div class="blog-title-tage">
-              <a href="javascript:void(0);">SEO</a>
-              <a href="javascript:void(0);">DOM</a>
-              <a href="javascript:void(0);">YEL</a>
-            </div>
-            <div class="blog-title-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.<p><a href="javascript:void(0);">READ MORE</a></p></div>
-          </div>
-          <div class="blog-grid">
-            <div class="blog-image">
-              <img src="images/bg2.png" width="400" height="300">
-            </div>
-            <div class="blog-title">Volupte  velt</div>
-            <div class="blog-title-tage">
-              <a href="javascript:void(0);">SEO</a>
-              <a href="javascript:void(0);">DOM</a>
-              <a href="javascript:void(0);">YEL</a>
-            </div>
-            <div class="blog-title-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae neque non nisl commodo sodales.<p><a href="javascript:void(0);">READ MORE</a></p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Blog -->
 
-    <!-- Start Our Client -->
-    <div class="our-client">
-      <div class="our-client-section">
-        <div class="container">
-          <div class="our-client-title">
-            <h2>Get to know our Client</h2>
-            <span>Proin malesuada justo sed lobortis dapibus.</span>
+    <div class="aws-slider">
+      <div class="aws-controls">
+        <a class="aws-prev-link hide-arrow" href="javascript:void();">
+          <img src="">
+        </a>
+        <a class="aws-next-link" href="javascript:void();">
+          <img src="">
+        </a>
+      </div>
+      <div class="aws-grid">
+        <div class="aws-row aws-row-1">
+          <div class="aws-col aws-col-1">
+            <div class="aws-content">
+              <div class="aws-title">Slide 1</div>
+              <div class="aws-body">Absolutely first class company. Cannot recommend highly enough. I have given them some more work with pleasure and confidence</div>
+            </div>
           </div>
-          <div class="tab">
-            <div class="our-client-tab tab-icon">
-              <i class="fa fa-globe" aria-hidden="true"></i>
+          <div class="aws-col aws-col-2">
+            <div class="aws-content">
+              <div class="aws-title">Slide 2</div>
+              <div class="aws-body">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',</div>
+            </div>
+          </div>
+        </div>
+        <div class="aws-row aws-row-2">
+          <div class="aws-col aws-col-1">
+            <div class="aws-content">
+              <div class="aws-title">Slide 3</div>
+              <div class="aws-body">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</div>
+            </div>
+          </div>
+          <div class="aws-col aws-col-2">
+            <div class="aws-content">
+              <div class="aws-title">Slide 4</div>
+              <div class="aws-body">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </div>
+            </div>
+          </div>
+        </div>
+        <div class="aws-row aws-row-3">
+          <div class="aws-col aws-col-1">
+            <div class="aws-content">
+              <div class="aws-title">Slide 5 </div>
+              <div class="aws-body">The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</div>
+            </div>
+          </div>
+          <div class="aws-col aws-col-2">
+            <div class="aws-content">
+              <div class="aws-title">Slide 6 </div>
+              <div class="aws-body">It is a long established fact that</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="container">
-        <div class="our-client-slider">
-          <div class="clients">
-            <img src="images/company-logo1" height='150' width='150' />
-          </div>
-          <div class="clients">
-            <img src="images/company-logo3" height='150' width='150' />
-          </div>
-          <div class="clients">
-            <img src="images/company-logo1" height='150' width='150' />
-          </div>
-          <div class="clients">
-            <img src="images/company-logo3" height='150' width='150' />
-          </div>
-          <div class="clients">
-            <img src="images/company-logo1" height='150' width='150' />
-          </div>
-          <div class="clients">
-            <img src="images/company-logo3" height='150' width='150' />
-          </div>
-        </div>
-      </div>
     </div>
-    <!-- End Our Client -->
 
-    <!-- Start About us -->
-    <div class="about-us" id="aboutus">
-      <div class="about-us-section">
-        <div class="about-us-title">
-          <h2>What people say about us</h2>
-          <span>Proin malesuada justo sed lobortis dapibus.</span>
-        </div>
-        <div class="tab">
-          <div class="about-us-tab tab-icon">
-            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-          </div>
-        </div>
-      </div>
-      <div class="about-us-testimonial">
-        <div class="container">
-          <div class="testimonial-slider">
-            <div class="testimonial">
-              <div class="testimonial-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas, augue non facilisis congue, elit augue ullamcorper augue, vitae sollicitudin metus arcu vitae nisi. Morbi finibus libero dui, quis vestibulum risus tincidunt ac.</div>
-              <div class="testimonial-author">Jeo Jourge</div>
-              <div class="testimonial-country">Ottawa</div>
-            </div>
-            <div class="testimonial">
-              <div class="testimonial-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas, augue non facilisis congue, elit augue ullamcorper augue, vitae sollicitudin metus arcu vitae nisi. Morbi finibus libero dui, quis vestibulum risus tincidunt ac.</div>
-              <div class="testimonial-author">Lee Menho</div>
-              <div class="testimonial-country">Chicago</div>
-            </div>
-            <div class="testimonial">
-              <div class="testimonial-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In egestas, augue non facilisis congue, elit augue ullamcorper augue, vitae sollicitudin metus arcu vitae nisi. Morbi finibus libero dui, quis vestibulum risus tincidunt ac.</div>
-              <div class="testimonial-author">Jeo Jourge</div>
-              <div class="testimonial-country">Ottawa</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End About us -->
+
+
+
 
 
     <!-- Start Footer -->

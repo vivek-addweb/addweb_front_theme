@@ -10,3 +10,4 @@ globals:
     https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js: { type: external }
     js/theme.js: {}
     https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js: { type: external }
+    js/animate-slide.js: {}

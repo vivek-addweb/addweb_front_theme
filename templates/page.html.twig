@@ -91,31 +91,35 @@
 
     {# Include a slider. #}
     {% if is_front %}
-      <div class="aws-slider">
-        <div class="aws-controls">
-          <a class="aws-prev-link hide-arrow" href="javascript:void();">
+      <div class="addweb-slider">
+        <div class="addweb-controls">
+          <a class="addweb-prev-link hide-arrow" href="javascript:void();">
             <img src="">
           </a>
-          <a class="aws-next-link" href="javascript:void();">
+          <a class="addweb-next-link" href="javascript:void();">
             <img src="">
           </a>
         </div>
-        <div class="aws-grid">
+        <div class="addweb-grid">
           {% for slide in slider %}
-          <div class="aws-row aws-row-1 aaaaaaaaaaa">
-            <div class="aws-col aws-col-1">
-              <div class="aws-content">
-                <div class="aws-title">{{ slide.title_left }}</div>
-                <div class="aws-body">
+          <div class="addweb-row addweb-row-1 aaaaaaaaaaa">
+            <div class="addweb-col addweb-col-1">
+              <div class="addweb-content">
+                <div class="addweb-title">
+                  <div class="addweb-title-sub">{{ slide.title_left }}</div>
+                </div>
+                <div class="addweb-body">
                   <a href="{{ slide.url_left }}"><img src="{{ slide.src_left }}"></a>
                 </div>
               </div>
             </div>
 
-            <div class="aws-col aws-col-2">
-              <div class="aws-content">
-                <div class="aws-title">{{ slide.title_right }}</div>
-                <div class="aws-body">
+            <div class="addweb-col addweb-col-2">
+              <div class="addweb-content">
+                <div class="addweb-title">
+                  <div class="addweb-title-sub">{{ slide.title_right }}</div>
+                </div>
+                <div class="addweb-body">
                   <a href="{{ slide.url_right }}"><img src="{{ slide.src_right }}"></a>
                 </div>
               </div>

@@ -1,0 +1,229 @@
+/**
+ * @file
+ * SCSS file to generate CSS.
+ *
+ * Container design.
+ * Tab design.
+ * Social media design.
+ * Owl Carousel design.
+ * Page title design.
+ * Pageination design.
+ */
+
+/* Container Width */
+.container {
+  width: 1170px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  @media (max-width: 1200px) {
+    width: 970px;
+  }
+  @media (max-width: 992px) {
+    width: 750px;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+/* Tab Design */
+.tab {
+  position: relative;
+  &::after {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    display: inline-block;
+    height: 37px;
+    width: 37px;
+    margin-bottom: -19px;
+    margin-left: -45px;
+    background-color: #3864FF;
+    content: '';
+    transform: rotate(45deg);
+    @include transform(rotate(45deg));
+  }
+  .tab-icon {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    max-height: 44px;
+    width: 53px;
+    padding: 15px 0 0;
+    background-color: $blue-38;
+    color: $white;
+    font-size: 32px;
+    text-align: center;
+    &:hover {
+      i {
+        @include transform(rotate(-60deg));
+      }
+    }
+    i {
+      @include transition(all 2s ease);
+    }
+  }
+}
+
+/* Social media design */
+.social-media {
+  float: right;
+  width: 25%;
+  margin: 17px 0;
+  @include transition(all .5s ease-in-out);
+  &:hover {
+    a {
+      i {
+        @include transform(scale(.8));
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+  a {
+    display: inline-block;
+    margin: 0 12px;
+    color: $grey-light;
+    i {
+      @include transition(all .5s ease-in-out);
+      @media (max-width: 1200px) {
+        padding-left: 0;
+      }
+      &:hover {
+        color: $white;
+        @include transform(scale(1.3));
+        @include animation(scalesmalltolarge 2s ease-in-out);
+      }
+      @include keyframes(scalesmalltolarge) {
+        0% {
+          @include transform(scale(1));
+        }
+        50% {
+          @include transform(scale(.5));
+        }
+        100% {
+          @include transform(scale(1.3));
+        }
+      }
+    }
+  }
+}
+/* End */
+
+/* Owl Carousel design */
+.banner,
+.about-us-testimonial {
+  .owl-controls {
+    .owl-nav {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: inline-block;
+      width: 100%;
+      margin-top: -30px;
+      .owl-prev,
+      .owl-next {
+        position: absolute;
+        background-color: transparent;
+        font-size: 0;
+        @include border-radius(0);
+        &:hover {
+          background-color: transparent;
+        }
+        &::after {
+          display: inline-block;
+          padding: 5px;
+          color: $grey-f9;
+          font-size: 40px;
+          font-family: 'FontAwesome';
+          @media (max-width: 480px) {
+            font-size: 25px;
+          }
+        }
+      }
+      .owl-next {
+        right: 0;
+        @media (max-width: 480px) {
+          margin-right: 0;
+          padding: 0;
+        }
+        &::after {
+          content: '\f054';
+        }
+      }
+      .owl-prev {
+        left: 0;
+        @media (max-width: 480px) {
+          margin-left: 0;
+          padding: 0;
+        }
+        &::after {
+          content: '\f053';
+        }
+      }
+    }
+    .owl-dots {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      margin-bottom: 6px;
+      margin-left: -35px;
+      .owl-dot {
+        float: left;
+        &.active {
+          span {
+            background: $grey-f9;
+          }
+        }
+      }
+    }
+  }
+}
+/* End */
+
+/* Page title Design */
+.page-title {
+  display: inline-block;
+  border-bottom: 3px solid $white;
+}
+/* End */
+
+
+/* Pagination design */
+.pagination {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  ul {
+    display: inline-block;
+    margin: 0;
+    list-style: none;
+    li {
+      display: inline-block;
+      margin: 0 5px;
+      a {
+        display: inline-block;
+        padding: 5px 10px;
+        border: 1px solid $white;
+        color: $white;
+        font-size: 18px;
+        &:hover {
+          background-color: $white;
+          color: $grey-f9;
+        }
+      }
+      &.active {
+        a {
+          background-color: $white;
+          color: $grey-f9;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+/* End */
+/* End */

@@ -1,0 +1,153 @@
+/**
+ * @file
+ * SCSS file to generate CSS.
+ *
+ * Slider
+ */
+
+.addweb-slider {
+      position: relative;
+      height: 300px;
+      background-color: #d6cfbc;
+      overflow: hidden;
+}
+.addweb-slider .addweb-row {
+  display: inline-block;
+  width: 100%;
+}
+.addweb-slider .addweb-row .addweb-col {
+  width: 100%;
+  background-color: #594005;
+  color: #FFF;
+  text-align: center;
+}
+.addweb-slider .addweb-row .addweb-col.addweb-col-2 {
+  background-color: #9b6d00;
+}
+.addweb-slider .addweb-row .addweb-col .addweb-content {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.addweb-slider .addweb-row .addweb-col .addweb-title {
+  position: absolute;
+  display: table;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+.addweb-slider .addweb-row .addweb-col .addweb-title .addweb-title-sub {
+  display: table-cell;
+  background-color: rgba(0, 0, 0, 0.2);
+  vertical-align: middle;
+  font-size: 36px;
+  text-shadow: 2px 1px 2px rgba(0, 0, 0, .7);
+}
+
+/* For Desktop Effect */
+@media (min-width: 768px) {
+  .addweb-slider .addweb-row {
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    display: flex;
+    clear: both;
+    float: left;
+    width: 100%;
+  }
+  .addweb-slider .addweb-row.active {
+    z-index: 10;
+  }
+  .addweb-slider .addweb-row.active .addweb-col {
+    left: 0;
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  .addweb-slider .addweb-row.active .addweb-col.addweb-col-2 {
+    right: 0;
+  }
+  .addweb-slider .addweb-row .addweb-col {
+    position: relative;
+    left: -100%;
+    width: 50%;
+    -webkit-transition: all 1.5s ease 0s;
+       -moz-transition: all 1.5s ease 0s;
+            transition: all 1.5s ease 0s;
+    -webkit-transform: scale(0, 0);
+       -moz-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  .addweb-slider .addweb-row .addweb-col.addweb-col-2 {
+    right: -100%;
+    left: auto;
+  }
+}
+
+/* For Mobile Effect */
+@media (max-width: 767px) {
+  .addweb-slider .addweb-row .addweb-col {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    opacity: 0;
+    -webkit-transition: all 1.5s ease 0s;
+       -moz-transition: all 1.5s ease 0s;
+            transition: all 1.5s ease 0s;
+    -webkit-transform: scale(0, 0);
+       -moz-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  .addweb-slider .addweb-row .addweb-col.active {
+    z-index: 9;
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+       -moz-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+/* Next/Prev Control */
+.addweb-slider .addweb-controls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 99;
+  margin: 0 0 0 -30px;
+}
+.addweb-slider .addweb-controls a {
+  display: inline-block;
+  height: 23px;
+  width: 30px;
+  background-image: url('../images/white-arrow-icon.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  content: '';
+}
+.addweb-slider .addweb-controls a.addweb-next-link {
+  transform: rotate(180deg);
+}
+.addweb-slider .addweb-controls a.hide-arrow {
+  opacity: .3;
+}
+@media (max-width: 767px) {
+  .addweb-slider .addweb-controls {
+    right: 0;
+    left: 0;
+    width: -webkit-calc('100% - 30px');
+    width: -moz-calc('100% - 30px');
+    width: calc('100% - 30px');
+    margin: 0 15px;
+  }
+  .addweb-slider .addweb-controls a {
+    text-align: left;
+  }
+  .addweb-slider .addweb-controls a.addweb-next-link {
+    float: right;
+  }
+}

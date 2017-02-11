@@ -1,0 +1,18 @@
+/**
+ * @file
+ * SCSS file to generate CSS.
+ *
+ * Design of Typography.
+ */
+
+body {
+  color: $grey-light;
+  font-family: $opensans-regular;
+  h2 {
+    color: $white;
+  }
+}
+
+* {
+  @include box-sizing(border-box);
+}

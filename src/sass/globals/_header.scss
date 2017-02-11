@@ -1,0 +1,271 @@
+/**
+ * @file
+ * SCSS file to generate CSS.
+ *
+ * Header SCSS.
+ */
+
+/* Logo */
+.logo {
+  svg {
+    width:150px
+  }
+}
+
+/* Header */
+.header {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0 0;
+  background-color: $black-2e;
+  .container {
+    position: relative;
+  }
+  .site-logo {
+    display: inline-block;
+    max-width: 200px;
+  }
+  .main-menu {
+    display: inline-block;
+    width: 100%;
+    .toggle-menu {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: none;
+      margin-top: 18px;
+      margin-right: 20px;
+      @media (max-width: 992px) {
+        display: block;
+      }
+      .menu-toggle-btn {
+        float: right;
+        /*height: 35px;*/
+        width: 35px;
+        margin: 0;
+        /*background-image: url('../images/menu-icon.svg');
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        @include transition(all .5s ease 0s);*/
+        /*&.close-menu {
+          background-image: url('../images/menu-icon-close.svg');
+        }*/
+        span {
+          display: block;
+          height: 4px;
+          width: 35px;
+          margin-top: 4px;
+          background-color: #EFEFEF;
+          @include border-radius(1px);
+        }
+      }
+    }
+    .aws-close-btn {
+      display: none;
+      @media (max-width: 992px) {
+        display: inline-block;
+      }
+    }
+    ul {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      &.navigation {
+        @media (max-width: 992px) {
+          position: relative;
+          margin-top: 50px;
+        }
+      }
+      li {
+        position: relative;
+        float: left;
+        padding: 0 10px;
+        @media (max-width: 992px) {
+          display: inline-block;
+          width: 100%;
+          margin-top: -1px;
+          padding: 0;
+          border-top: 1px solid $white-f1;
+          border-bottom: 1px solid $white-f1;
+        }
+        @media (min-width: 992px) {
+          &.menu-parent {
+            &::before {
+              position: absolute;
+              top: 0;
+              right: 0;
+              margin-top: 28px;
+              color: $white-f1;
+              font-size: 18px;
+              font-family: 'FontAwesome';
+              content: '\f0d7';
+            }
+          }
+        }
+        a {
+          display: inline-block;
+          width: 100%;
+          padding: 25px 5px;
+          border-bottom: 2px solid transparent;
+          color: $white-f1;
+          font-size: 15px;
+          &:hover {
+            border-bottom: 2px solid $blue-38;
+            color: $blue-38;
+            @media (max-width: 992px) {
+              border-bottom: none;
+            }
+          }
+          @media (max-width: 992px) {
+            display: inline-block;
+            padding: 10px 50px 10px 10px;
+            border-bottom: none;
+          }
+        }
+        i {
+          color: $grey-dark;
+        }
+        @media (min-width: 992px) {
+          &:hover {
+            .submenu {
+              display: block;
+            }
+          }
+        }
+        .submenu {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 9;
+          display: none;
+          margin-top: 70px;
+          border-top: 2px solid $blue-38;
+          background-color: $black-2e;
+          font-size: 14px;
+          white-space: nowrap;
+          li {
+            width: 100%;
+            padding: 0;
+            border-bottom: 1px solid $white;
+            &:last-child {
+              border-bottom: none;
+            }
+            &:hover {
+              background-color: $grey-42;
+              @media (min-width: 992px) {
+                &.submenu-parent {
+                  .submenu-level {
+                    display: block;
+                  }
+                }
+              }
+            }
+            @media (max-width: 992px) {
+              background-color: $grey-42;
+            }
+            a {
+              display: inline-block;
+              min-width: 145px;
+              width: 100%;
+              padding: 10px;
+              border-bottom: none;
+              color: $white;
+              @include transition(all .4s linear);
+              &:hover {
+                border-bottom: none;
+                text-indent: 2px;
+              }
+            }
+            &.submenu-parent {
+              a {
+                @media (max-width: 992px) {
+                  padding-right: 50px;
+                }
+              }
+              .submenu-level {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: none;
+                margin-top: -2px;
+                margin-left: 145px;
+                border-top: 2px solid $blue-38;
+                background-color: $black-2e;
+                white-space: nowrap;
+                @media (max-width: 992px) {
+                  position: relative;
+                  margin-top: 0;
+                  margin-left: 0;
+                  border-top: none;
+                  li {
+                    background-color: $grey-81;
+                  }
+                }
+              }
+            }
+          }
+          @media (max-width: 992px) {
+            position: relative;
+            display: none;
+            width: 100%;
+            margin-top: 0;
+            border-top: none;
+            border-bottom: none;
+          }
+        }
+        .cart-arrow {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: auto;
+          z-index: 999;
+          display: none;
+          height: 41px;
+          width: 50px;
+          margin: 0;
+          background-image: url('../images/dropdown-arrow.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 33px;
+          cursor: pointer;
+          @media (max-width: 992px) {
+            display: block;
+          }
+        }
+      }
+    }
+    @media (max-width: 992px) {
+      .menu-offset-left {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        z-index: 9;
+        display: inline-block;
+        height: 100%;
+        width: 50%;
+        overflow: auto;
+        background-color: $black-2e;
+        @include transition(all .5s ease 0s);
+        @media (max-width: 480px) {
+          width: 80%;
+        }
+        .aws-close-btn {
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin: 15px;
+          font-size: 0;
+          cursor: pointer;
+          &::before {
+            color: $white;
+            font-size: 20px;
+            font-family: 'FontAwesome';
+            content: '\f00d';
+          }
+        }
+      }
+      .menu-offset-left.fade-in { left: 0; }
+    }
+  }
+}

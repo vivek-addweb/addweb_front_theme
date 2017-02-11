@@ -155,22 +155,22 @@
         </a>
       </div>
       <div class="aws-grid">
-        {% for slide in slider_left %}
+        {% for slide in slider %}
         <div class="aws-row aws-row-1 aaaaaaaaaaa">
           <div class="aws-col aws-col-1">
             <div class="aws-content">
-              <div class="aws-title">{{ slide.title }}</div>
+              <div class="aws-title">{{ slide.title_left }}</div>
               <div class="aws-body">
-                <a href="{{ slide.url }}"><img src="{{ slide.src }}"></a>
+                <a href="{{ slide.url_left }}"><img src="{{ slide.src_left }}"></a>
               </div>
             </div>
           </div>
 
           <div class="aws-col aws-col-2">
             <div class="aws-content">
-              <div class="aws-title">{{ slide.title }}</div>
+              <div class="aws-title">{{ slide.title_right }}</div>
               <div class="aws-body">
-                <a href="{{ slide.url }}"><img src="{{ slide.src }}"></a>
+                <a href="{{ slide.url_right }}"><img src="{{ slide.src_right }}"></a>
               </div>
             </div>
           </div>

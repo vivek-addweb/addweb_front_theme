@@ -13,17 +13,8 @@ define('SLIDESHOW_COUNT', 3);
 function addweb_d8_preprocess_page(&$vars) {
   $show_slideshow = theme_get_setting('slideshow_display', 'addweb_d8');
   if ($vars['is_front'] && $show_slideshow) {
-    // Parent div
-    // $vars['parent_div_start'] = array();
-    // for ($i = 1; $i <= SLIDESHOW_COUNT; $i++) {
-    //   $vars['parent_div_start'][] = $i;
-    // }
-    // $vars['parent_div_close'] = array();
-    // for ($i = 1; $i <= SLIDESHOW_COUNT; $i++) {
-
-    // }
-    // Slide Left
-    $vars['slider_left'] = array();
+    // Slider
+    $vars['slider'] = array();
     for ($i = 1; $i <= SLIDESHOW_COUNT; $i++) {
       $fid = theme_get_setting("slide_left_image_{$i}", "addweb_d8");
       $file = \Drupal\file\Entity\File::load($fid[0]);
@@ -34,34 +25,16 @@ function addweb_d8_preprocess_page(&$vars) {
       else {
         $image_path = THEME_PATH . "/images/slide-{$i}.jpg";
       }
-      $vars['slider_left'][] = array(
-        'url' => theme_get_setting("slide_left_url_{$i}", "addweb_d8"),
-        'src' => $image_path,
-        'title' => theme_get_setting("slide_left_title_{$i}", "addweb_d8"),
+      $vars['slider'][] = array(
+        'title_left' => theme_get_setting("slide_left_title_{$i}", "addweb_d8"),
+        'url_left' => theme_get_setting("slide_left_url_{$i}", "addweb_d8"),
+        'src_left' => $image_path,
 
-        'url' => theme_get_setting("slide_right_url_{$i}", "addweb_d8"),
-        'src' => $image_path,
-        'title' => theme_get_setting("slide_right_title_{$i}", "addweb_d8"),
+        'title_right' => theme_get_setting("slide_right_title_{$i}", "addweb_d8"),
+        'url_right' => theme_get_setting("slide_right_url_{$i}", "addweb_d8"),
+        'src_right' => $image_path,
       );
     }
-    // Slide Right
-    $vars['slider_right'] = array();
-    // for ($i = 1; $i <= SLIDESHOW_COUNT; $i++) {
-    //   $fid = theme_get_setting("slide_right_image_{$i}", "addweb_d8");
-    //   $file = \Drupal\file\Entity\File::load($fid[0]);
-    //   if (!empty($file)) {
-    //     $uri = $file->getFileUri();
-    //     $image_path = file_create_url($uri);
-    //   }
-    //   else {
-    //     $image_path = THEME_PATH . "/images/slide-{$i}.jpg";
-    //   }
-    //   $vars['slider_right'][] = array(
-    //     'url' => theme_get_setting("slide_right_url_{$i}", "addweb_d8"),
-    //     'src' => $image_path,
-    //     'title' => theme_get_setting("slide_right_title_{$i}", "addweb_d8"),
-    //   );
-    // }
   }
 }
 
@@ -76,69 +49,75 @@ function addweb_d8_preprocess_page(&$vars) {
  */
 function addweb_d8_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
-  $form['busi_settings']['slideshow'] = array(
+  $form['home_slider'] = array(
     '#type' => 'details',
-    '#title' => t('Front Page Slideshow'),
+    '#title' => t('Home Page Slider'),
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   );
-  $form['busi_settings']['slideshow']['slideshow_display'] = array(
+  $form['home_slider']['slideshow_display'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show slideshow'),
     '#default_value' => theme_get_setting('slideshow_display', 'addweb_d8'),
     '#description'   => t("Check this option to show Slideshow in front page. Uncheck to hide."),
   );
-  $form['busi_settings']['slideshow']['slide'] = array(
+  $form['home_slider']['slide_text'] = array(
     '#markup' => t('You can change the title, url and image of each slide in the following Slide Setting fieldsets.'),
   );
 
   for ($i = 1; $i <= SLIDESHOW_COUNT; $i++) {
-    // Slide left
-    $form['busi_settings']['slideshow']['slide_left' . $i] = array(
+    $form['home_slider']['slide' . $i] = array(
       '#type' => 'details',
-      '#title' => t('Slide Left'.$i),
+      '#title' => t('Main Slide '.$i),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
     );
-    $form['busi_settings']['slideshow']['slide_left' . $i]['slide_left_title_' . $i] = array(
+    // Slide left
+    $form['home_slider']['slide' . $i]['slide_left'] = array(
+      '#type' => 'details',
+      '#title' => t('Slide Left'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+    $form['home_slider']['slide' . $i]['slide_left']['slide_left_title'] = array(
       '#type' => 'textfield',
-      '#title' => t('Slide Left'.$i.' Title'),
+      '#title' => t('Slide Title'),
       '#default_value' => theme_get_setting("slide_left_title_{$i}", "addweb_d8"),
     );
-    $form['busi_settings']['slideshow']['slide_left' . $i]['slide_left_image_' . $i] = array(
+    $form['home_slider']['slide' . $i]['slide_left']['slide_left_image'] = array(
       '#type' => 'managed_file',
-      '#title' => t('Slide Left'.$i.' Image'),
+      '#title' => t('Slide Image'),
       '#description' => t('Use same size for all the slideshow images(Recommented size : 930 x 320).'),
       '#default_value' => theme_get_setting("slide_left_image_{$i}", "addweb_d8"),
       '#upload_location' => 'public://',
     );
-    $form['busi_settings']['slideshow']['slide_left' . $i]['slide_left_url_' . $i] = array(
+    $form['home_slider']['slide' . $i]['slide_left']['slide_left_url'] = array(
       '#type' => 'textfield',
-      '#title' => t('Slide Left'.$i.' URL'),
+      '#title' => t('Slide URL'),
       '#default_value' => theme_get_setting("slide_left_url_{$i}", "addweb_d8"),
     );
     // Slide right
-    $form['busi_settings']['slideshow']['slide_right' . $i] = array(
+    $form['home_slider']['slide' . $i]['slide_right'] = array(
       '#type' => 'details',
-      '#title' => t('Slide Right'.$i),
+      '#title' => t('Slide Right'),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
     );
-    $form['busi_settings']['slideshow']['slide_right' . $i]['slide_right_title_' . $i] = array(
+    $form['home_slider']['slide' . $i]['slide_right']['slide_right_title'] = array(
       '#type' => 'textfield',
-      '#title' => t('Slide Right'.$i.' Title'),
+      '#title' => t('Slide Title'),
       '#default_value' => theme_get_setting("slide_right_title_{$i}", "addweb_d8"),
     );
-    $form['busi_settings']['slideshow']['slide_right' . $i]['slide_right_image_' . $i] = array(
+    $form['home_slider']['slide' . $i]['slide_right']['slide_right_image'] = array(
       '#type' => 'managed_file',
-      '#title' => t('Slide Right'.$i.' Image'),
+      '#title' => t('Slide Image'),
       '#description' => t('Use same size for all the slideshow images(Recommented size : 930 x 320).'),
       '#default_value' => theme_get_setting("slide_right_image_{$i}", "addweb_d8"),
       '#upload_location' => 'public://',
     );
-    $form['busi_settings']['slideshow']['slide_right' . $i]['slide_right_url_' . $i] = array(
+    $form['home_slider']['slide' . $i]['slide_right']['slide_right_url'] = array(
       '#type' => 'textfield',
-      '#title' => t('Slide Right'.$i.' URL'),
+      '#title' => t('Slide URL'),
       '#default_value' => theme_get_setting("slide_right_url_{$i}", "addweb_d8"),
     );
   }

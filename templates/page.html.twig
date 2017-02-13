@@ -60,16 +60,11 @@
       <div class="social-media">
         <ul>
           {% for key, social_media in social_url %}
-          <li>
-            <a href="{{ social_media }}"><i class="fa fa-2x fa-rss" aria-hidden="true"></i></a>
-          </li>
+            <li class="{{ social_media.social_class_name }}">
+              <a href="{{ social_media.url }}"><i class="fa fa-2x fa-rss" aria-hidden="true"></i>{{ social_media.class }}</a>
+            </li>
           {% endfor %}
         </ul>
-        <a href="#"><i class="fa fa-2x fa-rss" aria-hidden="true"></i>rss</a>
-        <a href="javascript:void(0);"><i class="fa fa-2x fa-google-plus" aria-hidden="true"></i>google</a>
-        <a href="javascript:void(0);"><i class="fa fa-2x fa-youtube-play" aria-hidden="true"></i>youtube</a>
-        <a href="javascript:void(0);"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i>facebook</a>
-        <a href="javascript:void(0);"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i>twitter</a>
       </div>
       <div class="site-logo">
         {% if page.header %}

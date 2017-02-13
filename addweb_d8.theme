@@ -4,8 +4,9 @@
  * Functions to support theming in the addweb_d8 theme.
  */
 // Change the value to increase the slideshow.
-define('SLIDESHOW_COUNT', 3);
 define('SOCIAL_COUNT', 5);
+define('SLIDE_2ITEMS_COUNT', 3);
+define('SIMPLE_SLIDE_COUNT', 4);
 
 
 /**
@@ -17,7 +18,12 @@ function addweb_d8_preprocess_page(&$vars) {
    * Social media
    */
   for ($i = 1; $i <= SOCIAL_COUNT; $i++) {
-    $vars['social_url'][] = theme_get_setting("social_li_{$i}", "addweb_d8");
+    $social_class_name = strtolower(str_replace(" ", "-", theme_get_setting("social_class_{$i}", "addweb_d8")));
+    $vars['social_url'][] = array(
+      'url' => theme_get_setting("social_li_{$i}", "addweb_d8"),
+      'social_class_name' => $social_class_name,
+      'class' => theme_get_setting("social_class_{$i}", "addweb_d8"),
+    );
   }
   /* End */
 
@@ -28,7 +34,7 @@ function addweb_d8_preprocess_page(&$vars) {
   if ($vars['is_front'] && $show_slideshow) {
     // Slider
     $vars['slider'] = array();
-    for ($i = 1; $i <= SLIDESHOW_COUNT; $i++) {
+    for ($i = 1; $i <= SLIDE_2ITEMS_COUNT; $i++) {
       $fid = theme_get_setting("slide_left_image_{$i}", "addweb_d8");
       $file = \Drupal\file\Entity\File::load($fid[0]);
       if (!empty($file)) {
@@ -94,91 +100,137 @@ function addweb_d8_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
       '#title' => t($social_name[$i - 1] . ' URL'),
       '#default_value' => theme_get_setting("social_li_{$i}", "addweb_d8"),
     );
-    /*$form['social_header']['social_class_' . $i] = array(
-      '#type' => 'textfield',
-      '#title' => t('CSS class'),
-      '#default_value' => theme_get_setting("social_class_{$i}", "addweb_d8"),
-    );*/
+    $form['social_header']['social_class_' . $i] = array(
+      '#type' => 'hidden',
+      '#default_value' => $social_name[$i - 1],
+    );
   }
   /* End */
 
 
   /**
-   * Home page slider
+   * 2 items in single slider - Home page
    */
-  $form['home_slider'] = array(
+  $form['home_slider_2items'] = array(
     '#type' => 'details',
-    '#title' => t('Home Page Slider'),
+    '#title' => t('Slider1: 2 items in single slider'),
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   );
-  $form['home_slider']['slider_display'] = array(
+  $form['home_slider_2items']['slider_display'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show slideshow'),
     '#default_value' => theme_get_setting('slider_display', 'addweb_d8'),
     '#description'   => t("Check this option to show Slideshow in front page. Uncheck to hide."),
   );
-  $form['home_slider']['slide_text'] = array(
+  $form['home_slider_2items']['slide_text'] = array(
     '#markup' => t('You can change the title, url and image of each slide in the following Slide Setting fieldsets.'),
   );
 
-  for ($i = 1; $i <= SLIDESHOW_COUNT; $i++) {
-    $form['home_slider']['slide' . $i] = array(
+  for ($i = 1; $i <= SLIDE_2ITEMS_COUNT; $i++) {
+    $form['home_slider_2items']['slide_2items' . $i] = array(
       '#type' => 'details',
       '#title' => t('Main Slide '.$i),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
     );
     // Slide left
-    $form['home_slider']['slide' . $i]['slide_left'] = array(
+    $form['home_slider_2items']['slide_2items' . $i]['slide_left'] = array(
       '#type' => 'details',
       '#title' => t('Slide Left'),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
     );
-    $form['home_slider']['slide' . $i]['slide_left']['slide_left_title_' . $i] = array(
+    $form['home_slider_2items']['slide_2items' . $i]['slide_left']['slide_left_title_' . $i] = array(
       '#type' => 'textfield',
       '#title' => t('Slide Title'),
       '#default_value' => theme_get_setting("slide_left_title_{$i}", "addweb_d8"),
     );
-    $form['home_slider']['slide' . $i]['slide_left']['slide_left_image_' . $i] = array(
+    $form['home_slider_2items']['slide_2items' . $i]['slide_left']['slide_left_image_' . $i] = array(
       '#type' => 'managed_file',
       '#title' => t('Slide Image'),
       '#description' => t('Use same size for all the slideshow images(Recommented size : 930 x 320).'),
       '#default_value' => theme_get_setting("slide_left_image_{$i}", "addweb_d8"),
       '#upload_location' => 'public://',
     );
-    $form['home_slider']['slide' . $i]['slide_left']['slide_left_url_' . $i] = array(
+    $form['home_slider_2items']['slide_2items' . $i]['slide_left']['slide_left_url_' . $i] = array(
       '#type' => 'textfield',
       '#title' => t('Slide URL'),
       '#default_value' => theme_get_setting("slide_left_url_{$i}", "addweb_d8"),
     );
     // Slide right
-    $form['home_slider']['slide' . $i]['slide_right'] = array(
+    $form['home_slider_2items']['slide_2items' . $i]['slide_right'] = array(
       '#type' => 'details',
       '#title' => t('Slide Right'),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
     );
-    $form['home_slider']['slide' . $i]['slide_right']['slide_right_title_' . $i] = array(
+    $form['home_slider_2items']['slide_2items' . $i]['slide_right']['slide_right_title_' . $i] = array(
       '#type' => 'textfield',
       '#title' => t('Slide Title'),
       '#default_value' => theme_get_setting("slide_right_title_{$i}", "addweb_d8"),
     );
-    $form['home_slider']['slide' . $i]['slide_right']['slide_right_image_' . $i] = array(
+    $form['home_slider_2items']['slide_2items' . $i]['slide_right']['slide_right_image_' . $i] = array(
       '#type' => 'managed_file',
       '#title' => t('Slide Image'),
       '#description' => t('Use same size for all the slideshow images(Recommented size : 930 x 320).'),
       '#default_value' => theme_get_setting("slide_right_image_{$i}", "addweb_d8"),
       '#upload_location' => 'public://',
     );
-    $form['home_slider']['slide' . $i]['slide_right']['slide_right_url_' . $i] = array(
+    $form['home_slider_2items']['slide_2items' . $i]['slide_right']['slide_right_url_' . $i] = array(
       '#type' => 'textfield',
       '#title' => t('Slide URL'),
       '#default_value' => theme_get_setting("slide_right_url_{$i}", "addweb_d8"),
     );
   }
   /* End */
+
+
+  /**
+   * Simple images & content slider - Home page
+   */
+  $form['home_simple_silder'] = array(
+    '#type' => 'details',
+    '#title' => t('Slider2: Simple images & content slider'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+  $form['home_simple_silder']['slider_display'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show slideshow'),
+    '#default_value' => theme_get_setting('slider_display', 'addweb_d8'),
+    '#description'   => t("Check this option to show Slideshow in front page. Uncheck to hide."),
+  );
+  $form['home_simple_silder']['slide_text'] = array(
+    '#markup' => t('You can change the title, url and image of each slide in the following Slide Setting fieldsets.'),
+  );
+  for ($i = 1; $i <= SIMPLE_SLIDE_COUNT; $i++) {
+    $form['home_simple_silder']['simple_slide' . $i] = array(
+      '#type' => 'details',
+      '#title' => t('Slide '.$i),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+    $form['home_simple_silder']['simple_slide' . $i]['simple_slide_image_' . $i] = array(
+      '#type' => 'managed_file',
+      '#title' => t('Slide Image'),
+      '#description' => t('Use same size for all the slideshow images(Recommented size : 930 x 320).'),
+      '#default_value' => theme_get_setting("slide_image_{$i}", "addweb_d8"),
+      '#upload_location' => 'public://',
+    );
+    $form['home_simple_silder']['simple_slide' . $i]['simple_slide_title_' . $i] = array(
+      '#type' => 'textfield',
+      '#title' => t('Slide Title'),
+      '#default_value' => theme_get_setting("simple_slide_title_{$i}", "addweb_d8"),
+    );
+    $form['home_simple_silder']['simple_slide' . $i]['simple_slide_body_' . $i] = array(
+      '#type' => 'textarea',
+      '#title' => t('Slide Body'),
+      '#default_value' => theme_get_setting("simple_slide_body_{$i}", "addweb_d8"),
+    );
+  }
+  /* End */
+
 
   $filename = drupal_get_path('theme', 'addweb_d8') . '/addweb_d8.theme';
   $form_state->addBuildInfo('files', array($filename));
@@ -193,7 +245,7 @@ function addweb_d8_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
 function addweb_d8_settings_form_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $account = \Drupal::currentUser();
   $values = $form_state->getValues();
-  for ($i = 0; $i <= SLIDESHOW_COUNT; $i++) {
+  for ($i = 0; $i <= SLIDE_2ITEMS_COUNT; $i++) {
     if (isset($values["slide_left_image_{$i}"]) && !empty($values["slide_left_image_{$i}"])) {
       // Load the file via file.fid.
       if ($file = \Drupal\file\Entity\File::load($values["slide_image_{$i}"][0])) {

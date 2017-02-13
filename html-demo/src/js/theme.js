@@ -172,5 +172,10 @@ jQuery(document).ready(function() {
     gutter : 5
   });
 
+  //  Social media for device
+  jQuery('.social-icon-link').click(function(){
+    jQuery('.social-media-wrap').toggleClass('social-icon-in')
+  });
+
 });
 

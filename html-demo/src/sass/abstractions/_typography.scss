@@ -15,4 +15,10 @@ body {
 
 * {
   @include box-sizing(border-box);
+  &::after {
+    @include box-sizing(border-box);
+  }
+  &::before {
+    @include box-sizing(border-box);
+  }
 }

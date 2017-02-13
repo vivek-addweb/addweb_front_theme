@@ -167,4 +167,10 @@ jQuery(document).ready(function() {
     jQuery('.drop-down-main').toggleClass('active-dropdown');
   });
 
+  // Custom Dropdown
+  jQuery('#cd-dropdown').dropdown({
+    gutter : 5
+  });
+
 });
+

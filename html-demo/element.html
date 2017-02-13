@@ -17,6 +17,8 @@
   <!-- jQuery -->
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/owl.carousel.js"></script>
+  <script src="js/modernizr.custom.63321.js"></script>
+  <script type="text/javascript" src="js/jquery.dropdown.js"></script>
   <script type="text/javascript" src="js/theme.js"></script>
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -376,29 +378,18 @@
           </div>
         </div>
         <!-- Start Dropdown section -->
-        <div class="drop-down-main active-dropdown">
-          <span>Select a plugin</span>
-          <ul>
-            <li>
-              <a href="javascript:void(0);">Animated Content for Layers</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">CoolText Plugin</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">CoolText for Wordpress</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">Pieces Plugin</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">Pieces for Wordpress</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">LatestNews Plugin</a>
-            </li>
-          </ul>
+        <div class="custom-dropdown">
+          <select id="cd-dropdown" name="cd-dropdown" class="cd-select">
+            <option value="-1" selected>Choose your favorite Project</option>
+            <option value="1" class="icon-monkey">Project 1</option>
+            <option value="2" class="icon-bear">Project 2</option>
+            <option value="3" class="icon-squirrel">Project 3</option>
+            <option value="4" class="icon-elephant">Project 4</option>
+            <option value="4" class="icon-elephant">Project 5</option>
+            <option value="4" class="icon-elephant">Project 6</option>
+          </select>
         </div>
+
       </div>
     </div>
   </div>

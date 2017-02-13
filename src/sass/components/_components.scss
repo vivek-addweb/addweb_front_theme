@@ -8,6 +8,7 @@
  * Owl Carousel design.
  * Page title design.
  * Pageination design.
+ * Default Contextual-links design for D8
  */
 
 /* Container Width */
@@ -226,4 +227,66 @@
   }
 }
 /* End */
+
+/**
+ * Default Contextual-links design for D8
+ */
+.contextual {
+  position: absolute;
+  top: 6px;
+  right: 0;
+  z-index: 500;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  .trigger {
+    .visually-hidden {
+      position: absolute !important;
+      clip: rect(1px, 1px, 1px, 1px) !important;
+    }
+  }
+  ul.contextual-links {
+    position: relative !important;
+    float: right !important;
+    clear: both !important;
+    top: -1px !important;
+    right: 6px !important;
+    margin: 0 !important;
+    padding: .25em 0 !important;
+    border: 1px solid #CCC !important;
+    background-color: $white !important;
+    text-align: left !important;
+    white-space: normal !important;
+    @include border-radius(4px 0 4px 4px !important);
+    &[hidden] { display: none !important; }
+    li {
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      font-size: inherit !important;
+      line-height: normal !important;
+      font-family: inherit !important;
+      letter-spacing: normal !important;
+      text-decoration: none !important;
+      list-style: none !important;
+      list-style-image: none !important;
+      opacity: 1 !important;
+      a {
+        height: auto !important;
+        width: 100% !important;
+        margin: 0 !important;
+        background-color: none !important;
+        line-height: normal !important;
+        text-decoration: none !important;
+        &:hover {
+          border: none !important;
+          background-color: #F7FCFF !important;
+          text-decoration: none !important;
+          @include box-shadow(none !important);
+        }
+      }
+    }
+  }
+}
 /* End */

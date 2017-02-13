@@ -76,6 +76,10 @@ function addweb_d8_preprocess_page(&$vars) {
    * Footer
    */
   $vars['address'] = theme_get_setting("address", "addweb_d8");
+  $vars['phone1'] = theme_get_setting("phone1", "addweb_d8");
+  $vars['phone2'] = theme_get_setting("phone2", "addweb_d8");
+  $vars['email1'] = theme_get_setting("email1", "addweb_d8");
+  $vars['email2'] = theme_get_setting("email2", "addweb_d8");
   /* End */
 }
 

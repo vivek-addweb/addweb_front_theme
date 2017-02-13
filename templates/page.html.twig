@@ -191,148 +191,45 @@
     {% endif %}
 
 
-    <div class="footer">
+    <footer class="footer">
       <div class="container">
-        <div class="newsletter-section">
-          <div class="newsletter-deatils">
-            <div class="newsletter-title">Newsletter</div>
-            <div class="newsletter-desc">Nulla fermentum massa eu dui vehicula tempus. Aliquam ullamcorper placerat ipsum, eget mollis eros tempus sed. Mauris ut tristique tortor.</div>
+        <div class="contact-info">
+          <div class="contact-grid">
+            <div class="footer-contact-icon">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+            </div>
+            <div class="footer-contact-desc">
+              {{ address }}
+            </div>
           </div>
-          <div class="newsletter-deatils">
-            <div class="newsletter-search">
-              <input type="text" name="usrname" Placeholder="e-mail">
-              <a href="javascript:void(0);"><i class="fa fa-credit-card" aria-hidden="true"></i></a>
+          <div class="contact-grid">
+            <div class="footer-contact-icon">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+            </div>
+            <div class="footer-contact-desc">
+              <p><a href="javascript:void(0);">1900 1800 1200</a></p>
+              <p><a href="javascript:void(0);">1900 1800 1200</a></p>
+            </div>
+          </div>
+          <div class="contact-grid">
+            <div class="footer-contact-icon">
+              <!-- <i class="fa fa-envelope-o" aria-hidden="true"></i> -->
+              <button type="button" class="tcon tcon-mail--envelope" role="button" aria-label="open mailbox">
+                <span class="tcon-mail--envelope__flap" aria-hidden="true"></span><!-- 
+                <span class="tcon-visuallyhidden">open mailbox</span> -->
+              </button>
+            </div>
+            <div class="footer-contact-desc">
+              <p><a href="javascript:void(0);">abc@gmail.com</a></p>
+              <p><a href="javascript:void(0);">abc@gmail.com</a></p>
             </div>
           </div>
         </div>
-        <div class="footer-grid-section">
-          <div class="footer-grid">
-            <div class="footer-title">Footer</div>
-            <p>Ut metus libero, tincidunt vitae est eu, malesuada rutrum mauris. In euismod leo urna, et facilisis nibh congue in. Morbi erat velit, maximus vel mi vel, suscipit ultricies mauris.</p>
-            <p>Ut metus libero, tincidunt vitae est eu, malesuada rutrum mauris. In euismod leo urna, et facilisis nibh congue in. Morbi erat velit, maximus vel mi vel, suscipit ultricies mauris.</p>
-          </div>
-          <div class="footer-grid">
-            <div class="footer-title">Latest from blog</div>
-            <div class="footer-blog-img">
-              <img src="images/bg2.png" width="60" height="60" />
-              <a href="javascript:void(0);">Ut metus libero, tincidunt vitae est eu.</a>
-            </div>
-            <div class="footer-blog-img">
-              <img src="images/bg2.png" width="60" height="60" />
-              <a href="javascript:void(0);">Ut metus libero, tincidunt vitae est eu.</a>
-            </div>
-          </div>
-          <div class="footer-grid">
-            <div class="footer-title">Popular tags</div>
-            <div class="footer-tags">
-              <a href="javascript:void(0);">css</a>
-              <a href="javascript:void(0);">jquery</a>
-              <a href="javascript:void(0);">css3</a>
-              <a href="javascript:void(0);">html</a>
-              <a href="javascript:void(0);">bootstrap</a>
-              <a href="javascript:void(0);">html5</a>
-              <a href="javascript:void(0);">php</a>
-              <a href="javascript:void(0);">sql</a>
-              <a href="javascript:void(0);">laravel</a>
-              <a href="javascript:void(0);">design</a>
-            </div>
-          </div>
-          <div class="footer-grid">
-            <div class="footer-title">Photostream</div>
-            <div class="footer-photostream">
-              <a href="javascript:void(0);">
-                <img src="images/person.png" width="60" height="45" />
-              </a>
-              <a href="javascript:void(0);">
-                <img src="images/person.png" width="60" height="45" />
-              </a>
-              <a href="javascript:void(0);">
-                <img src="images/person.png" width="60" height="45" />
-              </a>
-              <a href="javascript:void(0);">
-                <img src="images/person.png" width="60" height="45" />
-              </a>
-              <a href="javascript:void(0);">
-                <img src="images/person.png" width="60" height="45" />
-              </a>
-              <a href="javascript:void(0);">
-                <img src="images/person.png" width="60" height="45" />
-              </a>
-            </div>
-          </div>
+        <div class="copy-right">
+          <p>@copy right 2017.</p>
         </div>
-        <div class="footer-menu">
-          <ul class="footer-navigation">
-            <li><a href="javascript:void(0);">Home</a></li>
-            <li><a href="javascript:void(0);">Features</a></li>
-            <li><a href="javascript:void(0);">Sortcodes</a></li>
-            <li><a href="javascript:void(0);">Portfolio</a></li>
-            <li><a href="javascript:void(0);">Pages</a></li>
-            <li><a href="javascript:void(0);">Blog</a></li>
-            <li><a href="javascript:void(0);">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-bootom">
-          <div class="footer-contact">
-            <div class="contact-grid">
-              <div class="footer-contact-icon">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-              </div>
-              <div class="footer-contact-desc">
-                <p>402 semper urna,</p>
-                <p>vitae volutpat odiot</p>
-              </div>
-            </div>
-            <div class="contact-grid">
-              <div class="footer-contact-icon">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-              </div>
-              <div class="footer-contact-desc">
-                <p><a href="javascript:void(0);">1900 1800 1200</a></p>
-                <p><a href="javascript:void(0);">1900 1800 1200</a></p>
-              </div>
-            </div>
-            <div class="contact-grid">
-              <div class="footer-contact-icon">
-                <!-- <i class="fa fa-envelope-o" aria-hidden="true"></i> -->
-                <button type="button" class="tcon tcon-mail--envelope" role="button" aria-label="open mailbox">
-                  <span class="tcon-mail--envelope__flap" aria-hidden="true"></span><!-- 
-                  <span class="tcon-visuallyhidden">open mailbox</span> -->
-                </button>
-              </div>
-              <div class="footer-contact-desc">
-                <p><a href="javascript:void(0);">abc@gmail.com</a></p>
-                <p><a href="javascript:void(0);">abc@gmail.com</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="footer-social">
-            <a href="javascript:void(0);"><i class="fa fa-2x fa-rss" aria-hidden="true"></i></a>
-            <a href="javascript:void(0);"><i class="fa fa-2x fa-google-plus" aria-hidden="true"></i></a>
-            <a href="javascript:void(0);"><i class="fa fa-2x fa-youtube-play" aria-hidden="true"></i></a>
-            <a href="javascript:void(0);"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></a>
-            <a href="javascript:void(0);"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer class="site-footer">
-      <div class="layout-container">
-        {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
-          <div class="site-footer__top clearfix">
-            {{ page.footer_first }}
-            {{ page.footer_second }}
-            {{ page.footer_third }}
-            {{ page.footer_fourth }}
-          </div>
-        {% endif %}
-        {% if page.footer_fifth %}
-          <div class="site-footer__bottom">
-            {{ page.footer_fifth }}
-          </div>
-        {% endif %}
       </div>
     </footer>
+
   </div>
 </div>

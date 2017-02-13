@@ -71,6 +71,12 @@ function addweb_d8_preprocess_page(&$vars) {
    */
 
   /* End */
+
+  /**
+   * Footer
+   */
+  $vars['address'] = theme_get_setting("address", "addweb_d8");
+  /* End */
 }
 
 
@@ -221,7 +227,7 @@ function addweb_d8_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
       '#type' => 'managed_file',
       '#title' => t('Slide Image'),
       '#description' => t('Use same size for all the slideshow images(Recommented size : 930 x 320).'),
-      '#default_value' => theme_get_setting("slide_image_{$i}", "addweb_d8"),
+      '#default_value' => theme_get_setting("simple_slide_image_{$i}", "addweb_d8"),
       '#upload_location' => 'public://',
     );
     $form['home_simple_silder']['simple_slide' . $i]['simple_slide_title_' . $i] = array(
@@ -235,6 +241,44 @@ function addweb_d8_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
       '#default_value' => theme_get_setting("simple_slide_body_{$i}", "addweb_d8"),
     );
   }
+  /* End */
+
+
+  /**
+   * Footer
+   */
+  $form['footer'] = array(
+    '#type' => 'details',
+    '#title' => t('Footer'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+  $form['footer']['contact_info'] = array(
+    '#markup' => t('<h2>Contact info</h2>'),
+  );
+  $form['footer']['contact_info']['address'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Address'),
+    '#default_value' => theme_get_setting("address", "addweb_d8"),
+  );
+  $form['footer']['contact_info']['phone1'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Phone number'),
+    '#default_value' => theme_get_setting("phone1", "addweb_d8"),
+  );
+  $form['footer']['contact_info']['phone2'] = array(
+    '#type' => 'textfield',
+    '#default_value' => theme_get_setting("phone2", "addweb_d8"),
+  );
+  $form['footer']['contact_info']['email1'] = array(
+    '#type' => 'textfield',
+    '#title' => t('E-mail'),
+    '#default_value' => theme_get_setting("email1", "addweb_d8"),
+  );
+  $form['footer']['contact_info']['email2'] = array(
+    '#type' => 'textfield',
+    '#default_value' => theme_get_setting("email2", "addweb_d8"),
+  );
   /* End */
 
 

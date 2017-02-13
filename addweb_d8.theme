@@ -27,6 +27,7 @@ function addweb_d8_preprocess_page(&$vars) {
   }
   /* End */
 
+
   /**
    * 2 items in single slider - Home page
    */
@@ -66,10 +67,30 @@ function addweb_d8_preprocess_page(&$vars) {
   }
   /* End */
 
+
   /**
    * Simple images & content slider - Home page
    */
-
+  $simple_slide = theme_get_setting('slider_display', 'addweb_d8');
+  if ($vars['is_front'] && $simple_slide) {
+    $vars['simple_slide'] = array();
+    for ($i = 1; $i <= SIMPLE_SLIDE_COUNT; $i++) {
+      $fid = theme_get_setting("simple_slide_image_{$i}", "addweb_d8");
+      $file = \Drupal\file\Entity\File::load($fid[0]);
+      if (!empty($file)) {
+        $uri = $file->getFileUri();
+        $image_path = file_create_url($uri);
+      }
+      else {
+        $image_path = THEME_PATH . "/images/slide-{$i}.jpg";
+      }
+      $vars['simple_slide'][] = array(
+        'url' => $image_path,
+        'title' => theme_get_setting("simple_slide_title_{$i}", "addweb_d8"),
+        'body' => theme_get_setting("simple_slide_body_{$i}", "addweb_d8"),
+      );
+    }
+  }
   /* End */
 
   /**

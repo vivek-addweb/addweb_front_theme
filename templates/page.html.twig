@@ -132,11 +132,13 @@
     {% if is_front %}
       <div class="simple-silder">
         <ul>
+          {% for slide2 in simple_slide %}
           <li>
-            <div class="simple-silder1">img: </div>
-            <div class="simple-silder2">title: </div>
-            <div class="simple-silder3">body: </div>
+            <div class="simple-silder1"><img src="{{ slide2.url }}"></div>
+            <div class="simple-silder2">{{ slide2.title }}</div>
+            <div class="simple-silder3">{{ slide2.body }}</div>
           </li>
+          {% endfor %}
         </ul>
       </div>
     {% endif %}

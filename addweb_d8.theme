@@ -28,7 +28,7 @@ function addweb_d8_preprocess_page(&$vars) {
   /* End */
 
   /**
-   * Home page slider
+   * 2 items in single slider - Home page
    */
   $show_slideshow = theme_get_setting('slider_display', 'addweb_d8');
   if ($vars['is_front'] && $show_slideshow) {
@@ -64,6 +64,12 @@ function addweb_d8_preprocess_page(&$vars) {
       );
     }
   }
+  /* End */
+
+  /**
+   * Simple images & content slider - Home page
+   */
+
   /* End */
 }
 

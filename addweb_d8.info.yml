@@ -6,12 +6,11 @@ libraries:
   - addweb_d8/globals
 base theme: classy
 regions:
-  top_head: 'Top Header'
-  header: Header
-  navbar: Navbar
+  header: 'Header'
+  navbar: 'Navbar'
   content_prefix: 'Content Prefix'
-  content: Content
+  content: 'Content'
   sidebar_right: 'Sidebar Right'
   sidebar_left: 'Sidebar Left'
   content_suffix: 'Content Suffix'
-  footer: Footer
+  footer: 'Footer'

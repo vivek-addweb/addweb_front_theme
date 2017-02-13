@@ -53,45 +53,44 @@
 <div id="page-wrapper">
   <div id="page">
 
-
-  <!-- Start header -->
-  <div class="header">
-    <div class="container">
-      <div class="social-media">
-        <ul>
-          {% for key, social_media in social_url %}
-            <li class="{{ social_media.social_class_name }}">
-              <a href="{{ social_media.url }}"><i class="fa fa-2x fa-rss" aria-hidden="true"></i>{{ social_media.class }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="site-logo">
-        {% if page.header %}
-          {{ page.header }}
-        {% endif %}
-      </div>
-      <div class="main-menu">
-        <a href="javascript:void(0);" class="toggle-menu">
-          <div class="menu-toggle-btn">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </div>
-        </a>
-        <div class="menu-offset-left">
-          {% if page.navbar %}
-            {{ page.navbar }}
+    <!-- Start header -->
+    <div class="header">
+      <div class="container">
+        <div class="social-media">
+          <ul>
+            {% for key, social_media in social_url %}
+              <li class="{{ social_media.social_class_name }}">
+                <a href="{{ social_media.url }}">{{ social_media.class }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="site-logo">
+          {% if page.header %}
+            {{ page.header }}
           {% endif %}
+        </div>
+        <div class="main-menu">
+          <a href="javascript:void(0);" class="toggle-menu">
+            <div class="menu-toggle-btn">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </div>
+          </a>
+          <div class="menu-offset-left">
+            {% if page.navbar %}
+              {{ page.navbar }}
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- End header -->
+    <!-- End header -->
 
     {# Include a slider. #}
     {% if is_front %}
-      <div class="addweb-slider">
+      <div class="addweb-slider slider-2items">
         <div class="addweb-controls">
           <a class="addweb-prev-link hide-arrow" href="javascript:void();">
             <img src="">
@@ -127,6 +126,18 @@
           </div>
           {% endfor %}
         </div>
+      </div>
+    {% endif %}
+
+    {% if is_front %}
+      <div class="simple-silder">
+        <ul>
+          <li>
+            <div class="simple-silder1">img: </div>
+            <div class="simple-silder2">title: </div>
+            <div class="simple-silder3">body: </div>
+          </li>
+        </ul>
       </div>
     {% endif %}
 
@@ -180,11 +191,6 @@
     {% endif %}
 
 
-
-
-
-
-    <!-- Start Footer -->
     <div class="footer">
       <div class="container">
         <div class="newsletter-section">
@@ -310,7 +316,6 @@
         </div>
       </div>
     </div>
-    <!-- End Footer -->
 
     <footer class="site-footer">
       <div class="layout-container">

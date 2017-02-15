@@ -56,32 +56,35 @@
     <!-- Start header -->
     <div class="header">
       <div class="container">
-        <div class="social-media">
-          <ul>
-            {% for key, social_media in social_url %}
-              <li class="{{ social_media.social_class_name }}">
-                <a href="{{ social_media.url }}">{{ social_media.class }}</a>
-              </li>
-            {% endfor %}
-          </ul>
+        <div class="social-media-main">
+          <div class="share-icon"></div>
+          <div class="social-media">
+            <ul>
+              {% for key, social_media in social_url %}
+                <li class="{{ social_media.social_class_name }}">
+                  <a href="{{ social_media.url }}">{{ social_media.class }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
         <div class="site-logo">
           {% if page.header %}
             {{ page.header }}
           {% endif %}
-        </div>
-        <div class="main-menu">
-          <a href="javascript:void(0);" class="toggle-menu">
-            <div class="menu-toggle-btn">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+          <div class="main-menu">
+            <a href="javascript:void(0);" class="toggle-menu">
+              <div class="menu-toggle-btn">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </div>
+            </a>
+            <div class="menu-offset-left">
+              {% if page.navbar %}
+                {{ page.navbar }}
+              {% endif %}
             </div>
-          </a>
-          <div class="menu-offset-left">
-            {% if page.navbar %}
-              {{ page.navbar }}
-            {% endif %}
           </div>
         </div>
       </div>
@@ -196,20 +199,23 @@
     <footer class="footer">
       <div class="container">
         <div class="contact-info">
-          <div class="contact-grid">
+          <div class="contact-grid contact-location">
             <div class="svg-icon icon-location"></div>
             <div class="footer-contact-desc">
               {{ address }}
             </div>
           </div>
-          <div class="contact-grid">
-            <div class="svg-icon"></div>
+          <div class="contact-grid contact-phone">
+            <div class="svg-icon icon-phone"></div>
             <div class="footer-contact-desc">
               <p><a href="javascript:void(0);">{{ phone1 }}</a></p>
               <p><a href="javascript:void(0);">{{ phone2 }}</a></p>
             </div>
           </div>
           <div class="contact-grid">
+            <div class="icon-email">
+              <span class="email-flap-icon"></span>
+            </div>
             <div class="footer-contact-desc">
               <p><a href="javascript:void(0);">{{ email1 }}</a></p>
               <p><a href="javascript:void(0);">{{ email2 }}</a></p>
